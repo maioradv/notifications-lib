@@ -18,7 +18,6 @@ export const RolesResolvers:Resolvers<['roles'],['removeRoles','syncPermissionsR
             name
             description
             permissions
-            readonly
             translations {
               key
               locale
@@ -54,7 +53,6 @@ export const RolesResolvers:Resolvers<['roles'],['removeRoles','syncPermissionsR
           name
           description
           permissions
-          readOnly
           translations {
             key
             locale

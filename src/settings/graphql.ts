@@ -19,6 +19,7 @@ export const SettingsResolvers:Resolvers<['settings'],['removeSettings']> = {
             name
             value
             description
+            workspaceId
             translations {
               key
               locale

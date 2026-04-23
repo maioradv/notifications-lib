@@ -10,6 +10,10 @@ import Configs from "./configs";
 import Roles from "./roles";
 import Settings from "./settings";
 import Channels from "./channels";
+import Dashboards from "./dashboards";
+import Notifications from "./notifications";
+import Providers from "./providers";
+import { SseHandler } from "./sse";
 
 export class ApiClient implements ClientApiI
 {
@@ -21,6 +25,10 @@ export class ApiClient implements ClientApiI
   roles:Roles;
   settings:Settings;
   channels:Channels;
+  dashboards:Dashboards;
+  notifications:Notifications;
+  providers:Providers;
+  sse:SseHandler;
 
   constructor(protected config: ApiConfigs) {
     this.configApi = validateConfigs(this.config)
@@ -43,14 +51,26 @@ export class ApiClient implements ClientApiI
     this.roles = new Roles(this.client)
     this.settings = new Settings(this.client)
     this.channels = new Channels(this.client)
+    this.dashboards = new Dashboards(this.client)
+    this.notifications = new Notifications(this.client)
+    this.providers = new Providers(this.client)
+    this.sse = new SseHandler(this.client)
   }
 
   _setAccessToken(accessToken:string) {
     this.client.defaults.headers.common[ApiHeader.Authorization] = `Bearer ${accessToken}`
+    this._initSse()
   }
 
   setTenantID(id:number) {
     this.client.defaults.headers.common[ApiHeader.ApiTenant] = `${id}`
+    this._initSse()
+  }
+
+  _initSse() {
+    if(this.configApi.onSseEvent) {
+      this.sse.connect(this.configApi.onSseEvent)
+    }
   }
 
   async auth(): Promise<AccessTokenDto> {
@@ -60,13 +80,13 @@ export class ApiClient implements ClientApiI
       this.configApi.credentials.workspaceToken ? await this.authentication.workspace(this.configApi.credentials.workspaceToken) : 
       this.configApi.credentials.customer ? await this.authentication.jwt(this.configApi.credentials.customer.accessToken,this.configApi.credentials.customer.dashboardId) :
       await this.authentication.jwt(this.configApi.credentials.operator)
-    this.client.defaults.headers.common[ApiHeader.Authorization] = `${access.token_type} ${access.access_token}`
+    this._setAccessToken(access.access_token)
     return access
   }
 
   async jwt(accessToken:string,dashboardId?:number): Promise<AccessTokenDto> {
     const access = await this.authentication.jwt(accessToken,dashboardId)
-    this.client.defaults.headers.common[ApiHeader.Authorization] = `${access.token_type} ${access.access_token}`
+    this._setAccessToken(access.access_token)
     return access
   }
 }

@@ -1,14 +1,20 @@
-import { notificationsApiClient, ApiVersion, ChannelType, NotificationsPlan, NotificationsConfig, RateLimitInterval } from "../src";
+import { notificationsApiClient, ApiVersion, ChannelType, NotificationsPlan, NotificationsConfig, RateLimitInterval, ChannelStatus } from "../src";
 import Credentials from './credentials.json'
 
 async function example() {
   const api = notificationsApiClient({
     sandbox:true,
-    ...Credentials
+    ...Credentials,
+    onSseEvent(event) {
+      console.log(event)
+    },
   })
   await api.auth()
-  //api.configs.Config(194).then(v => console.log(v))
-  api.configs.initConfig(194,NotificationsPlan.premium,{maxWorkspaces:null}).then(v => console.log(v))
+  api.setTenantID(1)
+  //capire doppio evento sse dopo ctrl c
+  //api.channels.auth(2)
+  //api.providers.list().then(v => console.log(v.nodes))
+  //api.setTenantID(1)
 
 }
 

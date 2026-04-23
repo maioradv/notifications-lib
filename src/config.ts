@@ -1,6 +1,7 @@
 import { AxiosInstance } from "axios"
 import { ConfigError } from "./error"
 import { ApiVersion, LATEST_API_VERSION, SUPPORTED_API_VERSIONS, WithRequired } from "./types"
+import { NotificationsEvent } from "./sse"
 
 export type ApiConfigs = {
   host:string,
@@ -15,7 +16,8 @@ export type ApiConfigs = {
   },
   version?:ApiVersion,
   sandbox?:boolean,
-  axios?:(axios:AxiosInstance) => AxiosInstance
+  axios?:(axios:AxiosInstance) => AxiosInstance,
+  onSseEvent?:(event:NotificationsEvent) => void
 }
 
 export type ValidatedApiConfigs = ApiConfigs & WithRequired<ApiConfigs,'version'|'sandbox'>

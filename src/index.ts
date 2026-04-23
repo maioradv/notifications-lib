@@ -12,10 +12,16 @@ export * from './configs/types'
 export * from './roles/types'
 export * from './settings/types'
 export * from './channels/types'
+export * from './dashboards/types'
+export * from './notifications/types'
+export * from './providers/types'
+export * from './workspaces/types'
 
 export * from './core/dto/pagination'
 
 export { NotificationsPlan, NotificationsConfig } from './configs/service'
+
+export { NotificationsEvents , NotificationsEvent } from './sse'
 
 export function notificationsApiClient(opt:NotificationsApiConfigs): NotificationsApiClient {
   return new NotificationsApiClient(opt)

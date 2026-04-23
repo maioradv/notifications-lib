@@ -1,4 +1,3 @@
-import { Permission } from "../auth/types";
 import { ChannelType } from "../channels/types";
 import { BooleanClause, NumberClause, ObjectClause, StringClause, WhereClausesDto } from "../core/dto/clauses";
 import { Sorting, SortingParamsDto } from "../core/dto/sorting";
