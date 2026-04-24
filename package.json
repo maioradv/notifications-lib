@@ -1,6 +1,6 @@
 {
   "name": "@maioradv/notifications-lib",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "JS lib for Maior Notifications Api",
   "repository": "https://github.com/maioradv/notifications-lib.git",
   "author": "Maior ADV Srl",
