@@ -1,7 +1,5 @@
-import { BooleanClause, EnumClause, NumberClause, StringClause, WhereClausesDto } from "../core/dto/clauses";
-import { Sorting, SortingParamsDto } from "../core/dto/sorting";
-import { QueryParamsDto } from "../core/utils/queryParams";
-import { OmitRequire } from "../types";
+import { BooleanClause, StringClause, WhereClausesDto, Sorting, SortingParamsDto, QueryParamsDto, EnumClause, NumberClause } from "@maioradv/client-core";
+import { OmitRequire } from '@maioradv/types'
 
 export enum ChannelType {
   email = 'email',

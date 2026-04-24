@@ -1,7 +1,5 @@
-import { BooleanClause, NumberClause, ObjectClause, StringClause, WhereClausesDto } from "../core/dto/clauses";
-import { Sorting, SortingParamsDto } from "../core/dto/sorting";
-import { QueryParamsDto } from "../core/utils/queryParams";
-import { Metafield, OmitRequire, Translation } from "../types";
+import { BooleanClause, StringClause, WhereClausesDto, Sorting, SortingParamsDto, QueryParamsDto, EnumClause, NumberClause, ObjectClause } from "@maioradv/client-core";
+import { Metafield, OmitRequire, Translation } from "@maioradv/types";
 
 export type Setting = {
   id: number;

@@ -1,7 +1,4 @@
-import { PaginatedDto, PaginatedGQL } from "../core/dto/pagination";
-import { RemoveGQL } from "../core/model/remove-gql.response";
-import { queryParams } from "../core/utils/queryParams";
-import { RestApiModuleI, ApiModule, GraphApiModuleI } from "../model";
+import { RestApiModuleI, ApiModule, GraphApiModuleI, queryParams, RemoveGQL, PaginatedDto, PaginatedGQL } from "@maioradv/client-core";
 import { ConfigsResolvers, QueryConfigGQLDto } from "./graphql";
 import { NotificationsPlan, NotificationsConfig, NotificationsConfigDto } from "./service";
 import { Config, CreateConfigDto, PutConfigDto, QueryConfigDto, UpdateConfigDto } from "./types";

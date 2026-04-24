@@ -1,10 +1,8 @@
 import axios, { AxiosInstance } from "axios";
 import { ValidatedApiConfigs, ApiConfigs, validateConfigs } from "./config";
-import { ApiHeader } from "./types";
-import { ClientApiI } from "./model";
+import { ApiHeader } from "./api";
 import Auth from "./auth";
 import { AccessTokenDto } from "./auth/types";
-import { AuthError } from "./error";
 import ApiTokens from "./apitokens";
 import Configs from "./configs";
 import Roles from "./roles";
@@ -14,6 +12,12 @@ import Dashboards from "./dashboards";
 import Notifications from "./notifications";
 import Providers from "./providers";
 import { SseHandler } from "./sse";
+import Stats from "./stats";
+import Templates from "./templates";
+import Workspaces from "./workspaces";
+import WorkspaceTokens from "./workspaces/token";
+import Me from "./me";
+import { AuthError, ClientApiI } from "@maioradv/client-core";
 
 export class ApiClient implements ClientApiI
 {
@@ -29,6 +33,14 @@ export class ApiClient implements ClientApiI
   notifications:Notifications;
   providers:Providers;
   sse:SseHandler;
+  stats:Stats;
+  templates:Templates;
+  workspaces:Workspaces;
+  workspaceTokens:WorkspaceTokens;
+  /**
+   * @requires Customer - Context Type
+   */
+  me:Me;
 
   constructor(protected config: ApiConfigs) {
     this.configApi = validateConfigs(this.config)
@@ -46,6 +58,7 @@ export class ApiClient implements ClientApiI
 
   protected _initModules() {
     this.authentication = new Auth(this.client)
+    this.sse = new SseHandler(this.client)
     this.apiTokens = new ApiTokens(this.client)
     this.configs = new Configs(this.client)
     this.roles = new Roles(this.client)
@@ -54,7 +67,11 @@ export class ApiClient implements ClientApiI
     this.dashboards = new Dashboards(this.client)
     this.notifications = new Notifications(this.client)
     this.providers = new Providers(this.client)
-    this.sse = new SseHandler(this.client)
+    this.stats = new Stats(this.client)
+    this.templates = new Templates(this.client)
+    this.workspaces = new Workspaces(this.client)
+    this.workspaceTokens = new WorkspaceTokens(this.client)
+    this.me = new Me(this.client)
   }
 
   _setAccessToken(accessToken:string) {
@@ -68,9 +85,7 @@ export class ApiClient implements ClientApiI
   }
 
   _initSse() {
-    if(this.configApi.onSseEvent) {
-      this.sse.connect(this.configApi.onSseEvent)
-    }
+    this.sse.connect()
   }
 
   async auth(): Promise<AccessTokenDto> {

@@ -1,7 +1,7 @@
 import { AxiosInstance } from "axios"
-import { ConfigError } from "./error"
-import { ApiVersion, LATEST_API_VERSION, SUPPORTED_API_VERSIONS, WithRequired } from "./types"
-import { NotificationsEvent } from "./sse"
+import { ApiVersion, LATEST_API_VERSION, SUPPORTED_API_VERSIONS } from "./api"
+import { WithRequired } from "@maioradv/types"
+import { ConfigError } from "@maioradv/client-core"
 
 export type ApiConfigs = {
   host:string,
@@ -16,8 +16,7 @@ export type ApiConfigs = {
   },
   version?:ApiVersion,
   sandbox?:boolean,
-  axios?:(axios:AxiosInstance) => AxiosInstance,
-  onSseEvent?:(event:NotificationsEvent) => void
+  axios?:(axios:AxiosInstance) => AxiosInstance
 }
 
 export type ValidatedApiConfigs = ApiConfigs & WithRequired<ApiConfigs,'version'|'sandbox'>

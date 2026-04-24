@@ -1,33 +1,8 @@
 import { ApiToken } from "../apitokens/types";
 import { WorkspaceToken } from "../workspaces/types";
+import Maior from '@maioradv/types'
 
-type Customer = {
-  id: number;
-  email: string;
-  password: string;
-  name: string|null;
-  active: boolean;
-  createdAt: Date;
-  updatedAt: Date;
-}
-
-type Operator = {
-  id: number;
-  operatorRoleId: number;
-  email: string;
-  password: string;
-  name: string;
-  active: boolean;
-  createdAt: Date;
-  updatedAt: Date;
-}
-
-export type AccessTokenDto = {
-  access_token:string;
-  token_type:string;
-  expires_in:number;
-  refresh_token?:string;
-}
+export type AccessTokenDto = Maior.AccessTokenDto
 
 export enum JwtContextType {
   customer = 'Customer',
@@ -43,21 +18,13 @@ export type JwtPayloadContext = {
   dashboardId?:number;
 }
 
-export type JwtPayload = {
-  sub: string;
-  aud: string[];
-  scope: string[];
-  iat: number;
-  exp: number;
-  iss: string;
-  context: JwtPayloadContext;
-}
+export type JwtPayload = Maior.JwtPayload<JwtContextType>
 
 export type Jwt = {
   payload:JwtPayload;
-  Customer?:Customer;
+  Customer?:Maior.Customer;
   ApiToken?:ApiToken;
-  Operator?:Operator;
+  Operator?:Maior.Operator;
   WorkspaceToken?:WorkspaceToken;
 }
 

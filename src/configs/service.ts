@@ -1,4 +1,4 @@
-import { Nullable } from "../types";
+import { Nullable } from "@maioradv/types";
 import { LimitConfig } from "./types";
 
 export enum NotificationsPlan {

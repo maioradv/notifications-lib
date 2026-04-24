@@ -1,4 +1,4 @@
-import { Resolvers } from "../core/types/resolver";
+import { PaginatedGQLQueryDto, Resolvers } from "@maioradv/client-core";
 
 export const DashboardsResolvers:Resolvers<[],['removeDashboard','initDashboard']> = {
   query:{

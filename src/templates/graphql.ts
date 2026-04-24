@@ -1,11 +1,11 @@
 import { PaginatedGQLQueryDto, Resolvers } from "@maioradv/client-core";
 
-export const NotificationsResolvers:Resolvers<['notifications'],['removeNotifications']> = {
+export const TemplatesResolvers:Resolvers<['templates'],['removeTemplates']> = {
   query:{
-    notifications:{
-      name:'notifications',
-      query: `query NotificationList($limit: Int, $after: Int, $before: Int, $sorting: String){
-        notifications(limit: $limit, after: $after, before: $before, sorting: $sorting){
+    templates:{
+      name:'templates',
+      query: `query TemplateList($limit: Int, $after: Int, $before: Int, $sorting: String){
+        templates(limit: $limit, after: $after, before: $before, sorting: $sorting){
           edges {
             node {
               id
@@ -14,7 +14,8 @@ export const NotificationsResolvers:Resolvers<['notifications'],['removeNotifica
           }
           nodes {
             id
-            status
+            namespace
+            slug
             content {
               type
               email {
@@ -44,30 +45,12 @@ export const NotificationsResolvers:Resolvers<['notifications'],['removeNotifica
                 topic
               }
             }
-            templateId
-            workspaceId
-            channelId
-            type
-            recipient {
-              provider
-              smtp {
-                name
-                email
-              }
-              whatsappWeb {
-                phone
-              }
-              expo {
-                token
-              }
-              vapid {
-                endpoint
-                p256dh
-                auth
-              }
+            translations {
+              key
+              locale
+              value
             }
-            variables
-            scheduledAt
+            workspaceId
             createdAt
             updatedAt
           }
@@ -82,10 +65,10 @@ export const NotificationsResolvers:Resolvers<['notifications'],['removeNotifica
     },
   },
   mutation:{
-    removeNotifications:{
-      name:'removeNotifications',
-      query: `mutation NotificationDelete($id: [Int!]!){
-        removeNotifications(id: $id) {
+    removeTemplates:{
+      name:'removeTemplates',
+      query: `mutation TemplateDelete($id: [Int!]!){
+        removeTemplates(id: $id) {
           count
         }
       }`,
@@ -93,4 +76,4 @@ export const NotificationsResolvers:Resolvers<['notifications'],['removeNotifica
   }
 }
 
-export type QueryNotificationGQLDto = PaginatedGQLQueryDto
+export type QueryTemplateGQLDto = PaginatedGQLQueryDto

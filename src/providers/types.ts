@@ -1,8 +1,6 @@
+import { OmitRequire } from "@maioradv/types";
 import { ChannelType } from "../channels/types";
-import { BooleanClause, DateClause, EnumClause, NumberClause, StringClause, WhereClausesDto } from "../core/dto/clauses";
-import { Sorting, SortingParamsDto } from "../core/dto/sorting";
-import { QueryParamsDto } from "../core/utils/queryParams";
-import { OmitRequire } from "../types";
+import { BooleanClause, StringClause, WhereClausesDto, Sorting, SortingParamsDto, QueryParamsDto, EnumClause, NumberClause, ObjectClause } from "@maioradv/client-core";
 
 export enum ProviderStatus {
   operational = 'operational',

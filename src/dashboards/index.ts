@@ -1,4 +1,4 @@
-import { RestApiModuleI, ApiModule, GraphApiModuleI } from "../model";
+import { ApiModule } from "@maioradv/client-core";
 import { DashboardsResolvers } from "./graphql";
 import { Dashboard, InitDashboardDto } from "./types";
 

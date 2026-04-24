@@ -16,7 +16,8 @@
     "build": "tsc"
   },
   "dependencies": {
-    "axios": "^1.15"
+    "@maioradv/client-core": "^0.0.4",
+    "@maioradv/types": "^0.0.2"
   },
   "devDependencies": {
     "@types/node": "^24.6.1",

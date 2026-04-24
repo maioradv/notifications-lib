@@ -1,4 +1,5 @@
-import { ApiModule } from "../model";
+
+import { ApiModule } from "@maioradv/client-core";
 import { AccessTokenDto, Jwt } from "./types";
 
 export default class Auth extends ApiModule {
