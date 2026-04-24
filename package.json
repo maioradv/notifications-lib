@@ -27,5 +27,8 @@
   "keywords": [
     "typescript",
     "maior"
-  ]
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
 }
