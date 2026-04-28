@@ -1,6 +1,6 @@
 {
   "name": "@maioradv/notifications-lib",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "JS lib for Maior Notifications Api",
   "repository": "https://github.com/maioradv/notifications-lib.git",
   "author": "Maior ADV Srl",
@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "@maioradv/client-core": "^0.0.4",
-    "@maioradv/types": "^0.0.2"
+    "@maioradv/types": "^0.0.3"
   },
   "devDependencies": {
     "@types/node": "^24.6.1",

@@ -40,6 +40,11 @@
   resolved "https://registry.yarnpkg.com/@maioradv/types/-/types-0.0.2.tgz#1ed5f51136e592c20d2e80b70242341ae1c8166c"
   integrity sha512-9Kr9zx1j7gqqIxKINz5KNbE8PNKwKq9m1lnJ95mxE0+cslVWK+Hl0GUqOfS87CWvbpl3WdCsSCPd04GHXM+UHw==
 
+"@maioradv/types@^0.0.3":
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/@maioradv/types/-/types-0.0.3.tgz#b9ab650adfd46505b392f178af29c15a04a735b3"
+  integrity sha512-q0XoSM1tlf3LUc8Uopr1++hqCLV9rlWz4LYxgmo25lR0AoGkIEorx7d2cTMqg95VXk295HhCMY+fnAi4Rz6c6A==
+
 "@tsconfig/node10@^1.0.7":
   version "1.0.12"
   resolved "https://registry.yarnpkg.com/@tsconfig/node10/-/node10-1.0.12.tgz#be57ceac1e4692b41be9de6be8c32a106636dba4"
