@@ -24,11 +24,11 @@ export default class Providers extends ApiModule implements RestApiModuleI, Grap
   }
 
   createEvent(id:number,args:CreateProviderEventDto): Promise<ProviderEvent> {
-    return this._call('post',`/providers/${id}/event`,args)
+    return this._call('post',`/providers/${id}/events`,args)
   }
 
   findAllEvents(id:number): Promise<ProviderEvent[]> {
-    return this._call('get',`/providers/${id}/event`)
+    return this._call('get',`/providers/${id}/events`)
   }
   
   list(args:QueryProviderGQLDto = {}): Promise<PaginatedGQL<Provider>> {

@@ -28,11 +28,11 @@ export default class Notifications extends ApiModule implements RestApiModuleI, 
   }
 
   createEvent(id:number,args:CreateNotificationEventDto): Promise<NotificationEvent> {
-    return this._call('post',`/notifications/${id}/event`,args)
+    return this._call('post',`/notifications/${id}/events`,args)
   }
 
   findAllEvents(id:number): Promise<NotificationEvent[]> {
-    return this._call('get',`/notifications/${id}/event`)
+    return this._call('get',`/notifications/${id}/events`)
   }
   
   list(args:QueryNotificationGQLDto = {}): Promise<PaginatedGQL<Notification>> {

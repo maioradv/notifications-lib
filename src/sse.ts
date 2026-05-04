@@ -13,11 +13,14 @@ export type NotificationsEvents = {
   };
 }
 
-export type NotificationsEvent<K extends keyof NotificationsEvents = keyof NotificationsEvents> = {
-  event: K;
-  data: NotificationsEvents[K];
-  timestamp: number;
-}
+export type NotificationsEvent<K extends keyof NotificationsEvents = keyof NotificationsEvents> =  
+  K extends keyof NotificationsEvents 
+    ? {
+        event: K;
+        data: NotificationsEvents[K];
+        timestamp: number;
+      }
+    : never;
 
 export type SseHandlerCallbacks = {
   message: (event: NotificationsEvent) => void;
