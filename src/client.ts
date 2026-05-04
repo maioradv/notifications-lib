@@ -104,4 +104,10 @@ export class ApiClient implements ClientApiI
     this._setAccessToken(access.access_token)
     return access
   }
+
+  async workspace(token:string): Promise<AccessTokenDto> {
+    const access = await this.authentication.workspace(token)
+    this._setAccessToken(access.access_token)
+    return access
+  }
 }
