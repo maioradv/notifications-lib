@@ -19,6 +19,8 @@ async function example() {
   })
   await api.auth()
   api.setTenantID(1)
+  api.templates.findByKey('tidelizio-branded','reservations-pending-whatsapp').then(console.log)
+  api.me.templates.findAll().then(console.log)
   //api.me.settings.findByKey('contact','email').then(console.log)
   /*api.me.channels.create({
     type:ChannelType.whatsapp,
@@ -31,7 +33,7 @@ async function example() {
     default:true
   }).then(console.log)*/
   //api.me.channels.auth(1).then(console.log)
-  api.notifications.send({
+  /*api.notifications.send({
     recipient:{
       provider:'whatsappWeb',
       whatsappWeb:{
@@ -44,7 +46,7 @@ async function example() {
         body:'...'
       }
     }
-  }).then(console.log)
+  }).then(console.log)*/
   //api.me.notifications.findAllEvents(1).then(console.log)
 }
 

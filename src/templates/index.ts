@@ -32,4 +32,15 @@ export default class Templates extends ApiModule implements RestApiModuleI, Grap
       id
     })
   }
+
+  /**
+   * Open to every access type
+   */
+  findByKey(namespace:string,name:string): Promise<Template> {
+    return this._call('get',`/templates/${namespace}/${name}`)
+  }
+
+  removeByKey(namespace:string,name:string): Promise<void> {
+    return this._call('delete',`/templates/${namespace}/${name}`)
+  }
 }

@@ -37,4 +37,18 @@ export default class Templates extends ApiModule implements RestApiModuleI {
   remove(id:number): Promise<Template> {
     return this._call('delete',`/me/templates/${id}`)
   }
+
+  /**
+   * @requires TenantID - Set Workspace ID with {@link ApiClient.setTenantID}
+   */
+  findByKey(namespace:string,name:string): Promise<Template> {
+    return this._call('get',`/me/templates/${namespace}/${name}`)
+  }
+
+  /**
+   * @requires TenantID - Set Workspace ID with {@link ApiClient.setTenantID}
+   */
+  removeByKey(namespace:string,name:string): Promise<Template> {
+    return this._call('delete',`/me/templates/${namespace}/${name}`)
+  }
 }
