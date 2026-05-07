@@ -17,37 +17,10 @@ async function example() {
   .on('error', err => {
     console.log(err)
   })
-  await api.auth()
   api.setTenantID(1)
-  api.templates.findByKey('tidelizio-branded','reservations-pending-whatsapp').then(console.log)
-  api.me.templates.findAll().then(console.log)
-  //api.me.settings.findByKey('contact','email').then(console.log)
-  /*api.me.channels.create({
-    type:ChannelType.whatsapp,
-    config:{
-      provider:'whatsappWeb',
-      whatsappWeb:{
-
-      }
-    },
-    default:true
-  }).then(console.log)*/
+  await api.auth()
   //api.me.channels.auth(1).then(console.log)
-  /*api.notifications.send({
-    recipient:{
-      provider:'whatsappWeb',
-      whatsappWeb:{
-        phone:'+39'
-      }
-    },
-    content:{
-      type:'whatsapp',
-      whatsapp:{
-        body:'...'
-      }
-    }
-  }).then(console.log)*/
-  //api.me.notifications.findAllEvents(1).then(console.log)
+  //api.me.notifications.findAll({sorting:{id:'desc'},pagination:{limit:2}}).then(console.log)
+  //api.me.notifications.findAllEvents(38).then(console.log)
 }
-
 example()
