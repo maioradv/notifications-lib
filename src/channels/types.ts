@@ -46,6 +46,7 @@ export enum ChannelProvider {
   expo = 'expo',
   vapid = 'vapid',
   whatsappWeb = 'whatsappWeb',
+  baileys = 'baileys'
 }
 
 export type ConfigSmtp = {
@@ -84,7 +85,14 @@ export type ConfigWhatsappWeb = {
   }
 }
 
-export type ChannelConfig = ConfigSmtp | ConfigExpo | ConfigVapid | ConfigWhatsappWeb
+export type ConfigBaileys = {
+  provider:'baileys',
+  baileys:{
+    phone?:string;
+  }
+}
+
+export type ChannelConfig = ConfigSmtp | ConfigExpo | ConfigVapid | ConfigWhatsappWeb | ConfigBaileys
 
 export type Channel = {
   id: number;

@@ -17,10 +17,31 @@ async function example() {
   .on('error', err => {
     console.log(err)
   })
-  api.setTenantID(1)
+  api.setTenantID(1) //offline 5-5
   await api.auth()
-  //api.me.channels.auth(1).then(console.log)
+  //api.channels.findAll().then(console.log)
+  /*api.channels.update(1,{
+    config:{
+      provider:'baileys',
+      baileys:{}
+    }
+  }).then(console.log)*/
+  //api.channels.auth(1).then(console.log)
   //api.me.notifications.findAll({sorting:{id:'desc'},pagination:{limit:2}}).then(console.log)
   //api.me.notifications.findAllEvents(38).then(console.log)
+  api.notifications.send({
+    recipient:{
+      provider:'baileys',
+      baileys:{
+        phone:'+39'
+      }
+    },
+    content:{
+      type:'whatsapp',
+      whatsapp:{
+        body:'message is ' + new Date().toISOString()
+      }
+    }
+  }).then(console.log)
 }
 example()

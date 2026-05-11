@@ -69,6 +69,13 @@ export type RecipientWhatsappWeb = {
   }
 }
 
+export type RecipientBaileys = {
+  provider:'baileys',
+  baileys:{
+    phone:string;
+  }
+}
+
 export type RecipientExpo = {
   provider:'expo',
   expo:{
@@ -87,7 +94,7 @@ export type RecipientVapid = {
 
 export type NotificationRecipient = {
   locale?:string
-} & (RecipientSmtp | RecipientWhatsappWeb | RecipientExpo | RecipientVapid)
+} & (RecipientSmtp | RecipientWhatsappWeb | RecipientExpo | RecipientVapid | RecipientBaileys)
 
 export type Notification = {
   id: number;

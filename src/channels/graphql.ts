@@ -48,6 +48,9 @@ export const ChannelsResolvers:Resolvers<['channels'],['removeChannels']> = {
               whatsappWeb {
                 phone
               }
+              baileys {
+                phone
+              }
             }
             default
             description

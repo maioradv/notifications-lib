@@ -57,6 +57,9 @@ export const NotificationsResolvers:Resolvers<['notifications'],['removeNotifica
               whatsappWeb {
                 phone
               }
+              baileys {
+                phone
+              }
               expo {
                 token
               }
