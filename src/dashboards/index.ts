@@ -3,6 +3,10 @@ import { DashboardsResolvers } from "./graphql";
 import { Dashboard, InitDashboardDto } from "./types";
 
 export default class Dashboards extends ApiModule {
+
+  dashboard(id:number): Promise<Dashboard> {
+    return this._graphql(DashboardsResolvers.query.dashboard,{id})
+  }  
   
   init(dto:InitDashboardDto): Promise<Dashboard> {
     return this._graphql(DashboardsResolvers.mutation.initDashboard,dto)

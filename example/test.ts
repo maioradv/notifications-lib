@@ -6,7 +6,7 @@ async function example() {
   const api = notificationsApiClient({
     host:ApiHost.main,//'localhost:3001',
     //sandbox:true,
-    ...Credentials,
+    //...Credentials,
   })
   api.sse
   .on('message',event => {
@@ -17,7 +17,7 @@ async function example() {
   .on('error', err => {
     console.log(err)
   })
-  api.setTenantID(1) //offline 5-5
+  //api.setTenantID(1) //offline 5-5
   await api.auth()
   //api.channels.findAll().then(console.log)
   /*api.channels.update(1,{
@@ -29,7 +29,7 @@ async function example() {
   //api.channels.auth(1).then(console.log)
   //api.me.notifications.findAll({sorting:{id:'desc'},pagination:{limit:2}}).then(console.log)
   //api.me.notifications.findAllEvents(38).then(console.log)
-  api.notifications.send({
+  /*api.notifications.send({
     recipient:{
       provider:'baileys',
       baileys:{
@@ -42,6 +42,6 @@ async function example() {
         body:'message is ' + new Date().toISOString()
       }
     }
-  }).then(console.log)
+  }).then(console.log)*/
 }
 example()
