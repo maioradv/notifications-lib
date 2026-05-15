@@ -32,4 +32,10 @@ export default class Workspaces extends ApiModule implements RestApiModuleI, Gra
       id
     })
   }
+
+  archive(id:number): Promise<Workspace> {
+    return this._graphql(WorkspacesResolvers.mutation.archiveWorkspace,{
+      id
+    })
+  }
 }

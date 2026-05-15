@@ -1,6 +1,6 @@
 import { PaginatedGQLQueryDto, Resolvers } from "@maioradv/client-core";
 
-export const WorkspacesResolvers:Resolvers<['workspaces'],['removeWorkspaces']> = {
+export const WorkspacesResolvers:Resolvers<['workspaces'],['removeWorkspaces','archiveWorkspace']> = {
   query:{
     workspaces:{
       name:'workspaces',
@@ -40,6 +40,20 @@ export const WorkspacesResolvers:Resolvers<['workspaces'],['removeWorkspaces']> 
         }
       }`,
     },   
+    archiveWorkspace:{
+      name:'archiveWorkspace',
+      query: `mutation WorkspaceArchive($id: Int!){
+        archiveWorkspace(id: $id) {
+          id
+          name
+          description
+          dashboardId
+          deletedAt
+          createdAt
+          updatedAt
+        }
+      }`,
+    },  
   }
 }
 

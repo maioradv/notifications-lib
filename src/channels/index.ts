@@ -36,4 +36,10 @@ export default class Channels extends ApiModule implements RestApiModuleI, Graph
       id
     })
   }
+
+  archive(id:number): Promise<Channel> {
+    return this._graphql(ChannelsResolvers.mutation.archiveChannel,{
+      id
+    })
+  }
 }

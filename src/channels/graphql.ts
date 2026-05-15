@@ -1,6 +1,6 @@
 import { PaginatedGQLQueryDto, Resolvers } from "@maioradv/client-core";
 
-export const ChannelsResolvers:Resolvers<['channels'],['removeChannels']> = {
+export const ChannelsResolvers:Resolvers<['channels'],['removeChannels','archiveChannel']> = {
   query:{
     channels:{
       name:'channels',
@@ -78,6 +78,58 @@ export const ChannelsResolvers:Resolvers<['channels'],['removeChannels']> = {
         }
       }`,
     },   
+    archiveChannel:{
+      name:'archiveChannel',
+      query: `mutation ChannelArchive($id: Int!){
+        archiveChannel(id: $id) {
+          id
+          status
+          type
+          options {
+            workerOptions {
+              concurrency
+              humanization
+              limiter {
+                duration
+                max
+              }
+            }
+          }
+          config {
+            provider
+            expo {
+              token
+            }
+            smtp {
+              auth {
+                pass
+                user
+              }
+              host
+              port
+              secure
+            }
+            vapid {
+              privateKey
+              publicKey
+              subject
+            }
+            whatsappWeb {
+              phone
+            }
+            baileys {
+              phone
+            }
+          }
+          default
+          description
+          workspaceId
+          deletedAt
+          createdAt
+          updatedAt
+        }
+      }`,
+    },  
   }
 }
 
