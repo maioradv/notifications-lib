@@ -1,6 +1,6 @@
 import { OmitRequire } from "@maioradv/types";
 import { ChannelType } from "../channels/types";
-import { BooleanClause, StringClause, WhereClausesDto, Sorting, SortingParamsDto, QueryParamsDto, EnumClause, NumberClause, ObjectClause, DateClause } from "@maioradv/client-core";
+import { BooleanClause, StringClause, WhereClausesDto, Sorting, SortingParamsDto, QueryParamsDto, EnumClause, NumberClause, ObjectClause, DateClause, MetadataClause } from "@maioradv/client-core";
 
 export enum NotificationStatus {
   pending = 'pending',
@@ -24,7 +24,8 @@ export type ContentEmail = {
 export type ContentWhatsapp = {
   type:'whatsapp',
   whatsapp:{
-    body:string
+    body:string,
+    image?:string
   }
 }
 
@@ -106,6 +107,7 @@ export type Notification = {
   type: ChannelType;
   recipient: NotificationRecipient;
   variables: Record<string,any>;
+  metadata: Record<string,any>;
   scheduledAt: Date | null;
   createdAt: Date;
   updatedAt: Date;
@@ -162,6 +164,7 @@ export type ClausesNotificationDto = WhereClausesDto<{
   templateId?:NumberClause,
   minScheduledAt?:DateClause,
   maxScheduledAt?:DateClause,
+  metadata?:ObjectClause<MetadataClause>
 }>
 
 export type QueryNotificationDto = QueryParamsDto<SortingNotificationDto,ClausesNotificationDto>

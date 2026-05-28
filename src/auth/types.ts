@@ -52,6 +52,8 @@ export enum Permission {
   write_dashboards = 'write_dashboards',
   read_workspace_tokens = 'read_workspace_tokens',
   write_workspace_tokens = 'write_workspace_tokens',
+  read_images = 'read_images',
+  write_images = 'write_images',
 
   deploy_dashboards = 'deploy_dashboards',
   deploy_configs = 'deploy_configs',
@@ -64,6 +66,7 @@ export enum Permission {
   manage_own_templates = 'manage_own_templates',
   manage_own_notifications = 'manage_own_notifications',
   manage_own_settings = 'manage_own_settings',
+  manage_own_images = 'manage_own_images',
 
   send_notifications = 'send_notifications'
 }

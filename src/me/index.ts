@@ -9,6 +9,7 @@ import Stats from "./stats";
 import Templates from "./templates";
 import Workspaces from "./workspaces";
 import WorkspaceTokens from "./workspace-tokens";
+import Images from "./images";
 
 export default class Me extends ApiModule {
   readonly channels:Channels;
@@ -18,6 +19,7 @@ export default class Me extends ApiModule {
   readonly templates:Templates;
   readonly workspaces:Workspaces;
   readonly workspaceTokens:WorkspaceTokens;
+  readonly images:Images;
 
   constructor(client:AxiosInstance){
     super(client)
@@ -28,6 +30,7 @@ export default class Me extends ApiModule {
     this.templates = new Templates(client)
     this.workspaceTokens = new WorkspaceTokens(client)
     this.workspaces = new Workspaces(client)
+    this.images = new Images(client)
   }
 
   dashboard() {

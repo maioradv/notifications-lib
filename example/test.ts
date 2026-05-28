@@ -6,9 +6,9 @@ async function example() {
   const api = notificationsApiClient({
     host:ApiHost.main,//'localhost:3001',
     //sandbox:true,
-    //...Credentials,
+    ...Credentials,
   })
-  api.sse
+  /*api.sse
   .on('message',event => {
     if(event.event == 'qrRequired') {
       QR.generate(event.data.qr,{small:true})
@@ -16,8 +16,8 @@ async function example() {
   })
   .on('error', err => {
     console.log(err)
-  })
-  //api.setTenantID(1) //offline 5-5
+  })*/
+  api.setTenantID(1) //offline 5-5
   await api.auth()
   //api.channels.findAll().then(console.log)
   /*api.channels.update(1,{
@@ -36,12 +36,32 @@ async function example() {
         phone:'+39'
       }
     },
+    metadata:{
+      campaignId:12,
+      receiptId:'oasdk39k-jio3ji43'
+    },
     content:{
       type:'whatsapp',
       whatsapp:{
-        body:'message is ' + new Date().toISOString()
+        body:'Message'
       }
     }
   }).then(console.log)*/
+  api.notifications.findAll({
+    where:{
+      metadata:[
+        {
+          path:'campaignId',
+          operator:'equals',
+          value:12
+        },
+        {
+          path:'receiptId',
+          operator:'string_contains',
+          value:'k-ji9'
+        }
+      ]
+    }
+  }).then(console.log)
 }
 example()

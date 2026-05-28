@@ -5,6 +5,7 @@ import { ClausesNotificationDto, UpdateNotificationDto, SortingNotificationDto }
 import { ClausesSettingDto, CreateSettingDto, SortingSettingDto } from "../settings/types";
 import { ClausesTemplateDto, CreateTemplateDto, SortingTemplateDto } from "../templates/types";
 import { ClausesWorkspaceDto, ClausesWorkspaceTokenDto, CreateWorkspaceDto, CreateWorkspaceTokenDto, SortingWorkspaceDto, SortingWorkspaceTokenDto } from "../workspaces/types";
+import { ClausesImageDto, CreateImageDto, SortingImageDto } from "../images/types";
 
 export type CreateOwnChannelDto = Omit<CreateChannelDto,'workspaceId'|'options'|'status'>
 export type UpdateOwnChannelDto = Partial<CreateOwnChannelDto>
@@ -29,3 +30,6 @@ export type QueryOwnWorkspaceTokenDto = QueryParamsDto<Omit<SortingWorkspaceToke
 export type CreateOwnWorkspaceDto = Omit<CreateWorkspaceDto,'dashboardId'>
 export type UpdateOwnWorkspaceDto = Partial<CreateOwnWorkspaceDto>
 export type QueryOwnWorkspaceDto = QueryParamsDto<Omit<SortingWorkspaceDto,'dashboardId'>,Omit<ClausesWorkspaceDto,'dashboardId'>>
+
+export type CreateOwnImageDto = Omit<CreateImageDto,'workspaceId'>
+export type QueryOwnImageDto = QueryParamsDto<SortingImageDto,Omit<ClausesImageDto,'workspaceId'>>
