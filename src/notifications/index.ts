@@ -48,6 +48,15 @@ export default class Notifications extends ApiModule implements RestApiModuleI, 
   /**
    * @requires TenantID - Set Workspace ID with {@link ApiClient.setTenantID}
    */
+  fetch(token:string): Promise<Notification> {
+    return this._graphql(NotificationsResolvers.query.fetchNotification,{
+      token
+    })
+  }
+
+  /**
+   * @requires TenantID - Set Workspace ID with {@link ApiClient.setTenantID}
+   */
   send(args:SendNotificationDto): Promise<Notification> {
     return this._call('post','/notifications/send',args)
   }

@@ -8,6 +8,7 @@ export enum NotificationStatus {
   delayed = 'delayed',
   sent = 'sent',
   failed = 'failed',
+  delivered = 'delivered'
 }
 
 export type ContentEmail = {
@@ -34,10 +35,19 @@ export type ContentPush = {
   push:{
     title:string,
     body:string,
-    data?:Record<string,any>,
-    categoryId?:string,
-    priority?:string,
-    channelId?:string
+    channelId?: string,
+    data?: Record<string, unknown>,
+    subtitle?: string,
+    ttl?: number,
+    expiration?: number,
+    priority?: "default" | "normal" | "high",
+    interruptionLevel?: "active" | "critical" | "passive" | "time-sensitive",
+    badge?: number,
+    icon?: string,
+    categoryId?: string,
+    mutableContent?: boolean,
+    collapseId?: string,
+    tag?: string,
   }
 }
 
@@ -97,9 +107,14 @@ export type NotificationRecipient = {
   locale?:string
 } & (RecipientSmtp | RecipientWhatsappWeb | RecipientExpo | RecipientVapid | RecipientBaileys)
 
+export type NotificationOptions = {
+  unsubscribeUrl?: string
+}
+
 export type Notification = {
   id: number;
   status: NotificationStatus;
+  token: string;
   content: NotificationContent|null;
   templateId: number|null;
   workspaceId: number;
@@ -108,6 +123,7 @@ export type Notification = {
   recipient: NotificationRecipient;
   variables: Record<string,any>;
   metadata: Record<string,any>;
+  options: NotificationOptions;
   scheduledAt: Date | null;
   createdAt: Date;
   updatedAt: Date;
@@ -131,7 +147,7 @@ type WithTemplate = {
   templateId:number
 }
 
-export type CreateNotificationDto = OmitRequire<Notification,'id'|'createdAt'|'updatedAt'|'status'|'type'|'content'|'templateId','workspaceId'|'recipient'> & (WithContent | WithTemplate)
+export type CreateNotificationDto = OmitRequire<Notification,'id'|'createdAt'|'updatedAt'|'status'|'type'|'content'|'templateId'|'token','workspaceId'|'recipient'> & (WithContent | WithTemplate)
 export type UpdateNotificationDto = Partial<Pick<Notification,'variables'|'scheduledAt'>>
 
 export type CreateNotificationBulkDto = {

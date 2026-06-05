@@ -68,5 +68,6 @@ export enum Permission {
   manage_own_settings = 'manage_own_settings',
   manage_own_images = 'manage_own_images',
 
-  send_notifications = 'send_notifications'
+  send_notifications = 'send_notifications',
+  fetch_notifications = 'fetch_notifications'
 }

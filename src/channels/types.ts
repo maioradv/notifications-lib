@@ -21,9 +21,9 @@ export enum ChannelSessionStatus {
 }
 
 export enum Humanization {
-  none = 'none',
-  moderate = 'moderate',
-  aggressive = 'aggressive',
+  low = 'low',
+  medium = 'medium',
+  high = 'high',
 }
 
 export type Limiter = {
