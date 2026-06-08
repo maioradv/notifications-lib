@@ -16,35 +16,7 @@ export const TemplatesResolvers:Resolvers<['templates'],['removeTemplates']> = {
             id
             namespace
             slug
-            content {
-              type
-              email {
-                name
-                address
-                subject
-                html
-                text
-              }
-              whatsapp {
-                body
-              }
-              push {
-                title
-                body
-                data
-                categoryId
-                priority
-                channelId
-              }
-              webpush {
-                title
-                body
-                url
-                image
-                icon
-                topic
-              }
-            }
+            content
             translations {
               key
               locale

@@ -16,60 +16,12 @@ export const NotificationsResolvers:Resolvers<['notifications','fetchNotificatio
             id
             status
             token
-            content {
-              type
-              email {
-                name
-                address
-                subject
-                html
-                text
-              }
-              whatsapp {
-                body
-              }
-              push {
-                title
-                body
-                data
-                categoryId
-                priority
-                channelId
-              }
-              webpush {
-                title
-                body
-                url
-                image
-                icon
-                topic
-              }
-            }
+            content
             templateId
             workspaceId
             channelId
             type
-            recipient {
-              provider
-              smtp {
-                name
-                email
-              }
-              whatsappWeb {
-                phone
-              }
-              baileys {
-                phone
-              }
-              expo {
-                token
-              }
-              vapid {
-                endpoint
-                p256dh
-                auth
-              }
-            }
+            recipient
             variables
             metadata
             options
@@ -93,60 +45,12 @@ export const NotificationsResolvers:Resolvers<['notifications','fetchNotificatio
           id
           status
           token
-          content {
-            type
-            email {
-              name
-              address
-              subject
-              html
-              text
-            }
-            whatsapp {
-              body
-            }
-            push {
-              title
-              body
-              data
-              categoryId
-              priority
-              channelId
-            }
-            webpush {
-              title
-              body
-              url
-              image
-              icon
-              topic
-            }
-          }
+          content
           templateId
           workspaceId
           channelId
           type
-          recipient {
-            provider
-            smtp {
-              name
-              email
-            }
-            whatsappWeb {
-              phone
-            }
-            baileys {
-              phone
-            }
-            expo {
-              token
-            }
-            vapid {
-              endpoint
-              p256dh
-              auth
-            }
-          }
+          recipient
           variables
           metadata
           options

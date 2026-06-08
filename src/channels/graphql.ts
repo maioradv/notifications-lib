@@ -16,42 +16,8 @@ export const ChannelsResolvers:Resolvers<['channels'],['removeChannels','archive
             id
             status
             type
-            options {
-              workerOptions {
-                concurrency
-                humanization
-                limiter {
-                  duration
-                  max
-                }
-              }
-            }
-            config {
-              provider
-              expo {
-                token
-              }
-              smtp {
-                auth {
-                  pass
-                  user
-                }
-                host
-                port
-                secure
-              }
-              vapid {
-                privateKey
-                publicKey
-                subject
-              }
-              whatsappWeb {
-                phone
-              }
-              baileys {
-                phone
-              }
-            }
+            options
+            config
             default
             description
             workspaceId
@@ -85,42 +51,8 @@ export const ChannelsResolvers:Resolvers<['channels'],['removeChannels','archive
           id
           status
           type
-          options {
-            workerOptions {
-              concurrency
-              humanization
-              limiter {
-                duration
-                max
-              }
-            }
-          }
-          config {
-            provider
-            expo {
-              token
-            }
-            smtp {
-              auth {
-                pass
-                user
-              }
-              host
-              port
-              secure
-            }
-            vapid {
-              privateKey
-              publicKey
-              subject
-            }
-            whatsappWeb {
-              phone
-            }
-            baileys {
-              phone
-            }
-          }
+          options
+          config
           default
           description
           workspaceId

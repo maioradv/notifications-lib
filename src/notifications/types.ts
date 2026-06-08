@@ -184,3 +184,7 @@ export type ClausesNotificationDto = WhereClausesDto<{
 }>
 
 export type QueryNotificationDto = QueryParamsDto<SortingNotificationDto,ClausesNotificationDto>
+
+export type UnsubscribeUrlRequestBodyDto = {
+  token:string
+}
