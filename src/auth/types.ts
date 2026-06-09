@@ -18,7 +18,7 @@ export type JwtPayloadContext = {
   dashboardId?:number;
 }
 
-export type JwtPayload = Maior.JwtPayload<JwtContextType>
+export type JwtPayload = Maior.JwtPayload<JwtPayloadContext>
 
 export type Jwt = {
   payload:JwtPayload;
