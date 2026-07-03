@@ -17,6 +17,7 @@ export * from './providers/types'
 export * from './workspaces/types'
 export * from './stats/types'
 export * from './templates/types'
+export * from './webhooks/types'
 export * from './me/types'
 
 export { NotificationsPlan, NotificationsConfig } from './configs/service'

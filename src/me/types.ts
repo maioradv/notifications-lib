@@ -6,6 +6,7 @@ import { ClausesSettingDto, CreateSettingDto, SortingSettingDto } from "../setti
 import { ClausesTemplateDto, CreateTemplateDto, SortingTemplateDto } from "../templates/types";
 import { ClausesWorkspaceDto, ClausesWorkspaceTokenDto, CreateWorkspaceDto, CreateWorkspaceTokenDto, SortingWorkspaceDto, SortingWorkspaceTokenDto } from "../workspaces/types";
 import { ClausesImageDto, CreateImageDto, SortingImageDto } from "../images/types";
+import { ClausesWebhookDto, CreateWebhookDto, SortingWebhookDto, UpdateWebhookDto } from "../webhooks/types";
 
 export type CreateOwnChannelDto = Omit<CreateChannelDto,'workspaceId'|'options'|'status'>
 export type UpdateOwnChannelDto = Partial<CreateOwnChannelDto>
@@ -33,3 +34,7 @@ export type QueryOwnWorkspaceDto = QueryParamsDto<Omit<SortingWorkspaceDto,'dash
 
 export type CreateOwnImageDto = Omit<CreateImageDto,'workspaceId'>
 export type QueryOwnImageDto = QueryParamsDto<SortingImageDto,Omit<ClausesImageDto,'workspaceId'>>
+
+export type CreateOwnWebhookDto = Omit<CreateWebhookDto,'workspaceId'>
+export type UpdateOwnWebhookDto = Omit<UpdateWebhookDto,'workspaceId'>
+export type QueryOwnWebhookDto = QueryParamsDto<Omit<SortingWebhookDto,'workspaceId'>,Omit<ClausesWebhookDto,'workspaceId'>>

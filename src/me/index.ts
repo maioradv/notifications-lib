@@ -10,6 +10,7 @@ import Templates from "./templates";
 import Workspaces from "./workspaces";
 import WorkspaceTokens from "./workspace-tokens";
 import Images from "./images";
+import Webhooks from "./webhooks";
 
 export default class Me extends ApiModule {
   readonly channels:Channels;
@@ -20,6 +21,7 @@ export default class Me extends ApiModule {
   readonly workspaces:Workspaces;
   readonly workspaceTokens:WorkspaceTokens;
   readonly images:Images;
+  readonly webhooks:Webhooks;
 
   constructor(client:AxiosInstance){
     super(client)
@@ -31,6 +33,7 @@ export default class Me extends ApiModule {
     this.workspaceTokens = new WorkspaceTokens(client)
     this.workspaces = new Workspaces(client)
     this.images = new Images(client)
+    this.webhooks = new Webhooks(client)
   }
 
   dashboard() {

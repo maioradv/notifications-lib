@@ -19,6 +19,7 @@ import WorkspaceTokens from "./workspaces/token";
 import Me from "./me";
 import { AuthError, ClientApiI } from "@maioradv/client-core";
 import Images from "./images";
+import Webhooks from "./webhooks";
 
 export class ApiClient implements ClientApiI
 {
@@ -39,6 +40,7 @@ export class ApiClient implements ClientApiI
   workspaces:Workspaces;
   workspaceTokens:WorkspaceTokens;
   images:Images;
+  webhooks:Webhooks;
   /**
    * @requires Customer - Context Type
    */
@@ -74,6 +76,7 @@ export class ApiClient implements ClientApiI
     this.workspaces = new Workspaces(this.client)
     this.workspaceTokens = new WorkspaceTokens(this.client)
     this.images = new Images(this.client)
+    this.webhooks = new Webhooks(this.client)
     this.me = new Me(this.client)
   }
 
