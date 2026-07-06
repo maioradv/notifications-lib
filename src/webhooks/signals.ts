@@ -22,3 +22,8 @@ export type WebhookRequestDto<T = WebhookSignalMap> = {
 }[keyof T] & {
   timestamp:number;
 }
+
+export enum WebhookRequestHeaders {
+  signature = 'X-Webhook-Signature',
+  signal = 'X-Webhook-Signal'
+}
