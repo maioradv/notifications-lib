@@ -1,7 +1,6 @@
 import { RestApiModuleI, ApiModule, GraphApiModuleI, queryParams, RemoveGQL, PaginatedDto, PaginatedGQL } from "@maioradv/client-core";
 import { WebhooksResolvers, QueryWebhookGQLDto } from "./graphql";
 import { Webhook, CreateWebhookDto, QueryWebhookDto, UpdateWebhookDto, FindOneWebhookDto } from "./types";
-import { createHmac, timingSafeEqual } from "crypto";
 
 export default class Webhooks extends ApiModule implements RestApiModuleI, GraphApiModuleI {
   create(args:CreateWebhookDto): Promise<Webhook> {
@@ -32,12 +31,5 @@ export default class Webhooks extends ApiModule implements RestApiModuleI, Graph
     return this._graphql(WebhooksResolvers.mutation.removeWebhooks,{
       id
     })
-  }
-
-  verifySignature(headerSignature:string,secret:string,rawBody:string) : boolean {
-    const [algo, signature] = headerSignature.split('=');
-    if (algo !== 'sha256') return false;
-    const expected = createHmac('sha256', secret).update(rawBody).digest('hex');
-    return timingSafeEqual(Buffer.from(signature, 'hex'), Buffer.from(expected, 'hex'));
   }
 }

@@ -1,4 +1,4 @@
-import { notificationsApiClient, ApiVersion, ChannelType, NotificationsPlan, NotificationsConfig, RateLimitInterval, ChannelStatus, TimeInterval, ApiHost } from "../src";
+import { notificationsApiClient, ApiVersion, ChannelType, NotificationsPlan, NotificationsConfig, RateLimitInterval, ChannelStatus, TimeInterval, ApiHost, WebhookUtils } from "../src";
 import Credentials from './credentials.json'
 import QR from 'qrcode-terminal'
 
