@@ -22,6 +22,7 @@ export type SortingWorkspaceDto = SortingParamsDto<{
 
 export type ClausesWorkspaceDto = WhereClausesDto<{
   search?:StringClause,
+  isDeleted?: BooleanClause;
   dashboardId?:NumberClause,
 }>
 
@@ -42,7 +43,6 @@ export type SortingWorkspaceTokenDto = SortingParamsDto<{
 export type ClausesWorkspaceTokenDto = WhereClausesDto<{
   search?:StringClause,
   readOnly?:BooleanClause,
-  isDeleted?: BooleanClause;
   workspaceId?:NumberClause,
 }>
 
