@@ -42,6 +42,7 @@ export type SortingWorkspaceTokenDto = SortingParamsDto<{
 export type ClausesWorkspaceTokenDto = WhereClausesDto<{
   search?:StringClause,
   readOnly?:BooleanClause,
+  isDeleted?: BooleanClause;
   workspaceId?:NumberClause,
 }>
 

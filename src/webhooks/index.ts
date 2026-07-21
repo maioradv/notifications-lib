@@ -1,4 +1,4 @@
-import { RestApiModuleI, ApiModule, GraphApiModuleI, queryParams, RemoveGQL, PaginatedDto, PaginatedGQL } from "@maioradv/client-core";
+import { RestApiModuleI, ApiModule, GraphApiModuleI, queryParams, BulkResponse, PaginatedDto, PaginatedGQL } from "@maioradv/client-core";
 import { WebhooksResolvers, QueryWebhookGQLDto } from "./graphql";
 import { Webhook, CreateWebhookDto, QueryWebhookDto, UpdateWebhookDto, FindOneWebhookDto } from "./types";
 
@@ -27,7 +27,7 @@ export default class Webhooks extends ApiModule implements RestApiModuleI, Graph
     return this._graphql(WebhooksResolvers.query.webhooks,args)
   }
 
-  removeMany(id:number|number[]): Promise<RemoveGQL> {
+  removeMany(id:number|number[]): Promise<BulkResponse> {
     return this._graphql(WebhooksResolvers.mutation.removeWebhooks,{
       id
     })

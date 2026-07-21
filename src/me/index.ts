@@ -11,6 +11,10 @@ import Workspaces from "./workspaces";
 import WorkspaceTokens from "./workspace-tokens";
 import Images from "./images";
 import Webhooks from "./webhooks";
+import AudienceTags from "./audience-tags";
+import Audiences from "./audiences";
+import Campaigns from "./campaigns";
+import Segments from "./segments";
 
 export default class Me extends ApiModule {
   readonly channels:Channels;
@@ -22,6 +26,10 @@ export default class Me extends ApiModule {
   readonly workspaceTokens:WorkspaceTokens;
   readonly images:Images;
   readonly webhooks:Webhooks;
+  readonly audienceTags:AudienceTags;
+  readonly audiences:Audiences;
+  readonly campaigns:Campaigns;
+  readonly segments:Segments;
 
   constructor(client:AxiosInstance){
     super(client)
@@ -34,6 +42,10 @@ export default class Me extends ApiModule {
     this.workspaces = new Workspaces(client)
     this.images = new Images(client)
     this.webhooks = new Webhooks(client)
+    this.audienceTags = new AudienceTags(client)
+    this.audiences = new Audiences(client)
+    this.campaigns = new Campaigns(client)
+    this.segments = new Segments(client)
   }
 
   dashboard() {

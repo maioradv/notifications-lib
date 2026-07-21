@@ -141,6 +141,7 @@ export type ClausesChannelDto = WhereClausesDto<{
   search?:StringClause,
   default?:BooleanClause,
   type?:EnumClause<ChannelType>,
+  isDeleted?: BooleanClause;
   workspaceId?:NumberClause,
 }>
 

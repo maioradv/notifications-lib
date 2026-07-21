@@ -1,4 +1,4 @@
-import { RestApiModuleI, ApiModule, GraphApiModuleI, queryParams, RemoveGQL, PaginatedDto, PaginatedGQL } from "@maioradv/client-core";
+import { RestApiModuleI, ApiModule, GraphApiModuleI, queryParams, BulkResponse, PaginatedDto, PaginatedGQL } from "@maioradv/client-core";
 import { ApiTokensResolvers, QueryApiTokenGQLDto } from "./graphql";
 import { ApiToken, CreateApiTokenDto, QueryApiTokenDto, UpdateApiTokenDto } from "./types";
 
@@ -27,7 +27,7 @@ export default class ApiTokens extends ApiModule implements RestApiModuleI, Grap
     return this._graphql(ApiTokensResolvers.query.apiTokens,args)
   }
 
-  removeMany(id:number|number[]): Promise<RemoveGQL> {
+  removeMany(id:number|number[]): Promise<BulkResponse> {
     return this._graphql(ApiTokensResolvers.mutation.removeApiTokens,{
       id
     })

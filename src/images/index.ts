@@ -1,4 +1,4 @@
-import { RestApiModuleI, ApiModule, GraphApiModuleI, PaginatedDto, PaginatedGQL, RemoveGQL, queryParams } from "@maioradv/client-core";
+import { RestApiModuleI, ApiModule, GraphApiModuleI, PaginatedDto, PaginatedGQL, BulkResponse, queryParams } from "@maioradv/client-core";
 import { ImagesResolvers, QueryImageGQLDto } from "./graphql";
 import { CreateImageDto, Image, QueryImageDto } from "./types";
 
@@ -35,7 +35,7 @@ export default class Images extends ApiModule {
     return this._graphql(ImagesResolvers.query.images,args)
   }
 
-  removeMany(id:number|number[]): Promise<RemoveGQL> {
+  removeMany(id:number|number[]): Promise<BulkResponse> {
     return this._graphql(ImagesResolvers.mutation.removeImages,{
       id
     })

@@ -34,7 +34,7 @@ export default class Notifications extends ApiModule {
   /**
    * @requires TenantID - Set Workspace ID with {@link ApiClient.setTenantID}
    */
-  findAllEvents(id:number): Promise<NotificationEvent> {
+  findAllEvents(id:number): Promise<NotificationEvent[]> {
     return this._call('get',`/me/notifications/${id}/events`)
   }
 }

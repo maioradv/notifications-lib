@@ -1,4 +1,4 @@
-import { RestApiModuleI, ApiModule, GraphApiModuleI, queryParams, RemoveGQL, PaginatedDto, PaginatedGQL } from "@maioradv/client-core";
+import { RestApiModuleI, ApiModule, GraphApiModuleI, queryParams, BulkResponse, PaginatedDto, PaginatedGQL } from "@maioradv/client-core";
 import { QueryRoleGQLDto, RolesResolvers } from "./graphql";
 import { CreateRoleDto, QueryRoleDto, Role, UpdateRoleDto } from "./types";
 
@@ -27,7 +27,7 @@ export default class Roles extends ApiModule implements RestApiModuleI, GraphApi
     return this._graphql(RolesResolvers.query.roles,args)
   }
 
-  removeMany(id:number|number[]): Promise<RemoveGQL> {
+  removeMany(id:number|number[]): Promise<BulkResponse> {
     return this._graphql(RolesResolvers.mutation.removeRoles,{
       id
     })

@@ -1,4 +1,4 @@
-import { RestApiModuleI, ApiModule, GraphApiModuleI, queryParams, RemoveGQL, PaginatedDto, PaginatedGQL } from "@maioradv/client-core";
+import { RestApiModuleI, ApiModule, GraphApiModuleI, queryParams, BulkResponse, PaginatedDto, PaginatedGQL } from "@maioradv/client-core";
 import { WorkspacesResolvers, QueryWorkspaceGQLDto } from "./graphql";
 import { Workspace, CreateWorkspaceDto, QueryWorkspaceDto, UpdateWorkspaceDto } from "./types";
 
@@ -27,7 +27,7 @@ export default class Workspaces extends ApiModule implements RestApiModuleI, Gra
     return this._graphql(WorkspacesResolvers.query.workspaces,args)
   }
 
-  removeMany(id:number|number[]): Promise<RemoveGQL> {
+  removeMany(id:number|number[]): Promise<BulkResponse> {
     return this._graphql(WorkspacesResolvers.mutation.removeWorkspaces,{
       id
     })

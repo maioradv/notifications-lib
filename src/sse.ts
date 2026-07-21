@@ -2,6 +2,7 @@
 import { AxiosInstance } from 'axios';
 import { ApiHeader } from './api';
 import { SseClient } from '@maioradv/client-core';
+import { Entity } from '@maioradv/types';
 
 export type NotificationsEvents = {
   qrRequired: {
@@ -11,6 +12,17 @@ export type NotificationsEvents = {
   authenticated: {
     channelId: number;
   };
+  campaign:{
+    action:'update',
+    id:number,
+    name:string,
+    status?:string,
+  },
+  batch:{
+    entity:Entity<'notifications'>,
+    status:'completed',
+    description?:string,
+  },
 }
 
 export type NotificationsEvent<K extends keyof NotificationsEvents = keyof NotificationsEvents> =  

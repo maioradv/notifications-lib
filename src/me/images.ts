@@ -1,4 +1,4 @@
-import { RestApiModuleI, ApiModule, GraphApiModuleI, PaginatedDto, PaginatedGQL, RemoveGQL, queryParams } from "@maioradv/client-core";
+import { RestApiModuleI, ApiModule, GraphApiModuleI, PaginatedDto, PaginatedGQL, BulkResponse, queryParams } from "@maioradv/client-core";
 import { CreateOwnChannelDto, QueryOwnImageDto } from "./types";
 import { Image } from "../images/types";
 
@@ -49,7 +49,7 @@ export default class Images extends ApiModule {
   /**
    * @requires TenantID - Set Workspace ID with {@link ApiClient.setTenantID}
    */
-  removeMany(ids:number[]): Promise<RemoveGQL> {
+  removeMany(ids:number[]): Promise<BulkResponse> {
     return this._call('delete',`/images`,{ids})
   }
 }

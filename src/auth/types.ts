@@ -56,6 +56,14 @@ export enum Permission {
   write_images = 'write_images',
   read_webhooks = 'read_webhooks',
   write_webhooks = 'write_webhooks',
+  read_audiences = 'read_audiences',
+  write_audiences = 'write_audiences',
+  read_audience_tags = 'read_audience_tags',
+  write_audience_tags = 'write_audience_tags',
+  read_campaigns = 'read_campaigns',
+  write_campaigns = 'write_campaigns',
+  read_segments = 'read_segments',
+  write_segments = 'write_segments',
 
   deploy_dashboards = 'deploy_dashboards',
   deploy_configs = 'deploy_configs',
@@ -70,7 +78,12 @@ export enum Permission {
   manage_own_settings = 'manage_own_settings',
   manage_own_images = 'manage_own_images',
   manage_own_webhooks = 'manage_own_webhooks',
+  manage_own_audiences = 'manage_own_audiences',
+  manage_own_campaigns = 'manage_own_campaigns',
+  manage_own_segments = 'manage_own_segments',
 
   send_notifications = 'send_notifications',
-  fetch_notifications = 'fetch_notifications'
+  fetch_notifications = 'fetch_notifications',
+  push_audiences = 'push_audiences',
+  push_audience_events = 'push_audience_events',
 }

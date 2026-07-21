@@ -1,4 +1,4 @@
-import { RestApiModuleI, ApiModule, GraphApiModuleI, queryParams, RemoveGQL, PaginatedDto, PaginatedGQL } from "@maioradv/client-core";
+import { RestApiModuleI, ApiModule, GraphApiModuleI, queryParams, BulkResponse, PaginatedDto, PaginatedGQL } from "@maioradv/client-core";
 import { ProvidersResolvers, QueryProviderGQLDto } from "./graphql";
 import { Provider, ProviderEvent, CreateProviderDto, CreateProviderEventDto, UpdateProviderDto, QueryProviderDto } from "./types";
 
@@ -35,7 +35,7 @@ export default class Providers extends ApiModule implements RestApiModuleI, Grap
     return this._graphql(ProvidersResolvers.query.providers,args)
   }
 
-  removeMany(id:number|number[]): Promise<RemoveGQL> {
+  removeMany(id:number|number[]): Promise<BulkResponse> {
     return this._graphql(ProvidersResolvers.mutation.removeProviders,{
       id
     })

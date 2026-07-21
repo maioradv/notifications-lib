@@ -1,4 +1,4 @@
-import { RestApiModuleI, ApiModule, GraphApiModuleI, queryParams, RemoveGQL, PaginatedDto, PaginatedGQL } from "@maioradv/client-core";
+import { RestApiModuleI, ApiModule, GraphApiModuleI, queryParams, BulkResponse, PaginatedDto, PaginatedGQL } from "@maioradv/client-core";
 import { QuerySettingGQLDto, SettingsResolvers } from "./graphql";
 import { CreateSettingDto, PutSettingDto, QuerySettingDto, Setting, UpdateSettingDto } from "./types";
 
@@ -31,7 +31,7 @@ export default class Settings extends ApiModule implements RestApiModuleI, Graph
     return this._graphql(SettingsResolvers.query.settings,args)
   }
 
-  removeMany(id:number|number[]): Promise<RemoveGQL> {
+  removeMany(id:number|number[]): Promise<BulkResponse> {
     return this._graphql(SettingsResolvers.mutation.removeSettings,{
       id
     })

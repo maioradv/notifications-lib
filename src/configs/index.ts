@@ -1,4 +1,4 @@
-import { RestApiModuleI, ApiModule, GraphApiModuleI, queryParams, RemoveGQL, PaginatedDto, PaginatedGQL } from "@maioradv/client-core";
+import { RestApiModuleI, ApiModule, GraphApiModuleI, queryParams, BulkResponse, PaginatedDto, PaginatedGQL } from "@maioradv/client-core";
 import { ConfigsResolvers, QueryConfigGQLDto } from "./graphql";
 import { NotificationsPlan, NotificationsConfig, NotificationsConfigDto } from "./service";
 import { Config, CreateConfigDto, PutConfigDto, QueryConfigDto, UpdateConfigDto } from "./types";
@@ -32,7 +32,7 @@ export default class Configs extends ApiModule implements RestApiModuleI, GraphA
     return this._graphql(ConfigsResolvers.query.configs,args)
   }
 
-  removeMany(id:number|number[]): Promise<RemoveGQL> {
+  removeMany(id:number|number[]): Promise<BulkResponse> {
     return this._graphql(ConfigsResolvers.mutation.removeConfigs,{
       id
     })

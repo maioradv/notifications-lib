@@ -1,4 +1,4 @@
-import { RestApiModuleI, ApiModule, GraphApiModuleI, queryParams, RemoveGQL, PaginatedDto, PaginatedGQL } from "@maioradv/client-core";
+import { RestApiModuleI, ApiModule, GraphApiModuleI, queryParams, BulkResponse, PaginatedDto, PaginatedGQL } from "@maioradv/client-core";
 import { NotificationsResolvers, QueryNotificationGQLDto } from "./graphql";
 import { Notification, NotificationEvent, CreateNotificationDto, CreateNotificationBulkDto, CreateNotificationEventDto, UpdateNotificationDto, QueryNotificationDto, SendNotificationDto, SendNotificationBulkDto } from "./types";
 
@@ -39,7 +39,7 @@ export default class Notifications extends ApiModule implements RestApiModuleI, 
     return this._graphql(NotificationsResolvers.query.notifications,args)
   }
 
-  removeMany(id:number|number[]): Promise<RemoveGQL> {
+  removeMany(id:number|number[]): Promise<BulkResponse> {
     return this._graphql(NotificationsResolvers.mutation.removeNotifications,{
       id
     })

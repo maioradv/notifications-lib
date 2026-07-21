@@ -1,4 +1,4 @@
-import { RestApiModuleI, ApiModule, GraphApiModuleI, queryParams, RemoveGQL, PaginatedDto, PaginatedGQL } from "@maioradv/client-core";
+import { RestApiModuleI, ApiModule, GraphApiModuleI, queryParams, BulkResponse, PaginatedDto, PaginatedGQL } from "@maioradv/client-core";
 import { ChannelsResolvers, QueryChannelGQLDto } from "./graphql";
 import { Channel, CreateChannelDto, QueryChannelDto, UpdateChannelDto, ChannelSession } from "./types";
 
@@ -31,7 +31,7 @@ export default class Channels extends ApiModule implements RestApiModuleI, Graph
     return this._graphql(ChannelsResolvers.query.channels,args)
   }
 
-  removeMany(id:number|number[]): Promise<RemoveGQL> {
+  removeMany(id:number|number[]): Promise<BulkResponse> {
     return this._graphql(ChannelsResolvers.mutation.removeChannels,{
       id
     })

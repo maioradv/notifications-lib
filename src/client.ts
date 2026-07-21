@@ -20,6 +20,11 @@ import Me from "./me";
 import { AuthError, ClientApiI } from "@maioradv/client-core";
 import Images from "./images";
 import Webhooks from "./webhooks";
+import Audiences from "./audiences";
+import AudienceEvents from "./audiences/events";
+import AudienceTags from "./audience-tags";
+import Segments from "./segments";
+import Campaigns from "./campaigns";
 
 export class ApiClient implements ClientApiI
 {
@@ -41,6 +46,11 @@ export class ApiClient implements ClientApiI
   workspaceTokens:WorkspaceTokens;
   images:Images;
   webhooks:Webhooks;
+  audiences:Audiences;
+  audienceEvents:AudienceEvents;
+  audienceTags:AudienceTags;
+  segments:Segments;
+  campaigns:Campaigns;
   /**
    * @requires Customer - Context Type
    */
@@ -77,6 +87,11 @@ export class ApiClient implements ClientApiI
     this.workspaceTokens = new WorkspaceTokens(this.client)
     this.images = new Images(this.client)
     this.webhooks = new Webhooks(this.client)
+    this.audiences = new Audiences(this.client)
+    this.audienceEvents = new AudienceEvents(this.client)
+    this.audienceTags = new AudienceTags(this.client)
+    this.segments = new Segments(this.client)
+    this.campaigns = new Campaigns(this.client)
     this.me = new Me(this.client)
   }
 
