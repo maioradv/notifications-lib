@@ -10,7 +10,7 @@ import { ClausesWebhookDto, CreateWebhookDto, SortingWebhookDto, UpdateWebhookDt
 import { ClausesAudienceTagDto, CreateAudienceTagDto, SortingAudienceTagDto, UpdateAudienceTagDto } from "../audience-tags/types";
 import { ClausesAudienceDto, CreateAudienceDto, SortingAudienceDto, UpdateAudienceDto, PutAudienceDto } from "../audiences/types";
 import { ClausesCampaignDto, CreateCampaignDto, SortingCampaignDto, UpdateCampaignDto } from "../campaigns/types";
-import { ClausesSegmentDto, CreateSegmentDto, SortingSegmentDto, UpdateSegmentDto } from "../segments/types";
+import { ClausesSegmentDto, CreateSegmentDto, SortingSegmentDto, UpdateSegmentDto, QueryAudienceSegmentDto } from "../segments/types";
 
 export type CreateOwnChannelDto = Omit<CreateChannelDto,'workspaceId'|'options'|'status'>
 export type UpdateOwnChannelDto = Partial<CreateOwnChannelDto>
@@ -64,3 +64,4 @@ export type QueryOwnCampaignDto = QueryParamsDto<Omit<SortingCampaignDto,'worksp
 export type CreateOwnSegmentDto = Omit<CreateSegmentDto,'workspaceId'>
 export type UpdateOwnSegmentDto = Omit<UpdateSegmentDto,'workspaceId'>
 export type QueryOwnSegmentDto = QueryParamsDto<Omit<SortingSegmentDto,'workspaceId'>,Omit<ClausesSegmentDto,'workspaceId'>>
+export type QueryOwnAudienceSegmentDto = QueryAudienceSegmentDto

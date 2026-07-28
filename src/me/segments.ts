@@ -1,6 +1,7 @@
 import { Segment } from "../segments/types";
 import { RestApiModuleI, ApiModule, queryParams, PaginatedDto } from "@maioradv/client-core";
-import { CreateOwnSegmentDto, UpdateOwnSegmentDto, QueryOwnSegmentDto } from "./types";
+import { CreateOwnSegmentDto, UpdateOwnSegmentDto, QueryOwnSegmentDto, QueryOwnAudienceSegmentDto } from "./types";
+import { Audience } from "../audiences/types";
 
 export default class Segments extends ApiModule implements RestApiModuleI {
   /**
@@ -37,4 +38,11 @@ export default class Segments extends ApiModule implements RestApiModuleI {
   remove(id:number): Promise<Segment> {
     return this._call('delete',`/me/segments/${id}`)
   }
+
+  /**
+   * @requires TenantID - Set Workspace ID with {@link ApiClient.setTenantID}
+   */
+  audience(id:number,args:QueryOwnAudienceSegmentDto = {}): Promise<PaginatedDto<Audience>> {
+    return this._call('get',`/me/segments/${id}/audiences`,queryParams(args))
+  } 
 }
