@@ -87,6 +87,13 @@ export type RecipientBaileys = {
   }
 }
 
+export type RecipientWaha = {
+  provider:'waha',
+  waha:{
+    phone:string;
+  }
+}
+
 export type RecipientExpo = {
   provider:'expo',
   expo:{
@@ -105,7 +112,7 @@ export type RecipientVapid = {
 
 export type NotificationRecipient = {
   locale?:string
-} & (RecipientSmtp | RecipientWhatsappWeb | RecipientExpo | RecipientVapid | RecipientBaileys)
+} & (RecipientSmtp | RecipientWhatsappWeb | RecipientExpo | RecipientVapid | RecipientBaileys | RecipientWaha)
 
 export type NotificationOptions = {
   unsubscribeUrl?: string
