@@ -87,3 +87,12 @@ export enum Permission {
   push_audiences = 'push_audiences',
   push_audience_events = 'push_audience_events',
 }
+
+export function DefaultWorkspaceTokenPermissions(): Permission[] {
+  return [
+    Permission.send_notifications,
+    Permission.fetch_notifications,
+    Permission.push_audiences,
+    Permission.push_audience_events
+  ]
+}
