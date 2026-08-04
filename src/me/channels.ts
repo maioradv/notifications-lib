@@ -1,4 +1,4 @@
-import { Channel, ChannelSession } from "../channels/types";
+import { Channel, ChannelEvent, ChannelSession } from "../channels/types";
 import { RestApiModuleI, ApiModule, queryParams, PaginatedDto } from "@maioradv/client-core";
 import { CreateOwnChannelDto, UpdateOwnChannelDto, QueryOwnChannelDto } from "./types";
 
@@ -43,5 +43,12 @@ export default class Channels extends ApiModule implements RestApiModuleI {
    */
   auth(id:number): Promise<ChannelSession> {
     return this._call('post',`/me/channels/${id}/auth`)
+  }
+
+  /**
+   * @requires TenantID - Set Workspace ID with {@link ApiClient.setTenantID}
+   */
+  findAllEvents(id:number): Promise<ChannelEvent[]> {
+    return this._call('get',`/me/channels/${id}/events`)
   }
 }
