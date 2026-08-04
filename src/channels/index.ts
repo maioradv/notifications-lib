@@ -1,6 +1,6 @@
 import { RestApiModuleI, ApiModule, GraphApiModuleI, queryParams, BulkResponse, PaginatedDto, PaginatedGQL } from "@maioradv/client-core";
 import { ChannelsResolvers, QueryChannelGQLDto } from "./graphql";
-import { Channel, CreateChannelDto, QueryChannelDto, UpdateChannelDto, ChannelSession } from "./types";
+import { Channel, CreateChannelDto, QueryChannelDto, UpdateChannelDto, ChannelSession, ChannelEvent } from "./types";
 
 export default class Channels extends ApiModule implements RestApiModuleI, GraphApiModuleI {
   create(args:CreateChannelDto): Promise<Channel> {
@@ -25,6 +25,10 @@ export default class Channels extends ApiModule implements RestApiModuleI, Graph
 
   auth(id:number): Promise<ChannelSession> {
     return this._call('post',`/channels/${id}/auth`)
+  }
+
+  findAllEvents(id:number): Promise<ChannelEvent[]> {
+    return this._call('get',`/channels/${id}/events`)
   }
   
   list(args:QueryChannelGQLDto = {}): Promise<PaginatedGQL<Channel>> {
