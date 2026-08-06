@@ -136,6 +136,17 @@ export type ChannelEvent = {
   updatedAt: Date;
 }
 
+export type SortingChannelEventDto = SortingParamsDto<{
+  createdAt?: Sorting
+  updatedAt?: Sorting
+  id?: Sorting
+}>
+
+export type QueryChannelEventDto = QueryParamsDto<
+  SortingChannelEventDto,
+  WhereClausesDto<{}>
+>
+
 
 export type CreateChannelDto = OmitRequire<Channel,'id'|'createdAt'|'updatedAt'|'deletedAt','type'|'config'|'workspaceId'>
 export type UpdateChannelDto = Partial<CreateChannelDto>
