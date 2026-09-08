@@ -35,7 +35,7 @@ async function example() {
     default:true
   }).then(console.log)*/
   //api.channels.auth(2).then(console.log)
-  //api.webhooks.findAll().then(console.log)
+  api.webhooks.findAll().then(console.log)
   //api.channels.findAll({where:{workspaceId:32}}).then(console.log)
   //api.roles.syncPermissions().then(console.log)
   /*api.channels.update(1,{
@@ -44,17 +44,18 @@ async function example() {
       baileys:{}
     }
   }).then(console.log)*/
-  //api.channels.auth(57).then(console.log)
+  //api.channels.remove(63).then(console.log)
+  //api.channels.auth(63).then(console.log)
   //api.me.notifications.findAll({sorting:{id:'desc'},pagination:{limit:2}}).then(console.log)
   //api.me.notifications.findAllEvents(38).then(console.log)
-  api.notifications.send({
+  /*api.notifications.send({
     recipient:{
-      provider:'whatsappWeb',
-      whatsappWeb:{
+      provider:'waha',
+      waha:{
         phone:'+39'
       }
     },
-    channelId:57,
+    channelId:63,
     content:{
       type:'whatsapp',
       whatsapp:{

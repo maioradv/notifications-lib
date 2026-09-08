@@ -4,7 +4,7 @@ export enum ApiVersion {
 }
 
 export enum ApiHost {
-  main = 'api.notifications.maior.cloud'
+  main = 'api.piumail.it'
 }
 
 export const LATEST_API_VERSION = ApiVersion.March26
