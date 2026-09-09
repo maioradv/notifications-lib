@@ -149,7 +149,7 @@ export type QueryChannelEventDto = QueryParamsDto<
 
 
 export type CreateChannelDto = OmitRequire<Channel,'id'|'createdAt'|'updatedAt'|'deletedAt','type'|'config'|'workspaceId'>
-export type UpdateChannelDto = Partial<CreateChannelDto>
+export type UpdateChannelDto = Partial<Omit<CreateChannelDto,'config'|'type'>>
 
 export type SortingChannelDto = SortingParamsDto<{
   type?:Sorting,

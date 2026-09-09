@@ -13,7 +13,7 @@ import { ClausesCampaignDto, CreateCampaignDto, SortingCampaignDto, UpdateCampai
 import { ClausesSegmentDto, CreateSegmentDto, SortingSegmentDto, UpdateSegmentDto, QueryAudienceSegmentDto } from "../segments/types";
 
 export type CreateOwnChannelDto = Omit<CreateChannelDto,'workspaceId'|'options'|'status'>
-export type UpdateOwnChannelDto = Partial<CreateOwnChannelDto>
+export type UpdateOwnChannelDto = Partial<Omit<CreateOwnChannelDto,'config'|'type'>>
 export type QueryOwnChannelDto = QueryParamsDto<Omit<SortingChannelDto,'workspaceId'>,Omit<ClausesChannelDto,'workspaceId'>>
 
 export type UpdateOwnNotificationDto = Partial<UpdateNotificationDto>
