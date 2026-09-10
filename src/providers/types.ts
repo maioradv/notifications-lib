@@ -7,6 +7,7 @@ export enum ProviderStatus {
   degraded = 'degraded',
   outage = 'outage',
   maintenance = 'maintenance',
+  retired = 'retired',
 }
 
 export type Provider = {
