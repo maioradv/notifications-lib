@@ -8,7 +8,8 @@ export enum NotificationStatus {
   delayed = 'delayed',
   sent = 'sent',
   failed = 'failed',
-  delivered = 'delivered'
+  delivered = 'delivered',
+  canceled = 'canceled',
 }
 
 export type ContentEmail = {
