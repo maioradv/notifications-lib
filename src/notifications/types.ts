@@ -116,7 +116,8 @@ export type NotificationRecipient = {
 } & (RecipientSmtp | RecipientWhatsappWeb | RecipientExpo | RecipientVapid | RecipientBaileys | RecipientWaha)
 
 export type NotificationOptions = {
-  unsubscribeUrl?: string
+  unsubscribeUrl?: string,
+  allowNightSending?: boolean,
 }
 
 export type Notification = {
