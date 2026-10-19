@@ -118,6 +118,7 @@ export type NotificationRecipient = {
 export type NotificationOptions = {
   unsubscribeUrl?: string,
   allowNightSending?: boolean,
+  groupId?: string,
 }
 
 export type Notification = {

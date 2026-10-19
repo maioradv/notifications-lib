@@ -1,9 +1,12 @@
 import { Channel } from "../channels/types";
 import { Workspace } from "../workspaces/types";
 import { Dashboard } from "../dashboards/types";
+import { Notification } from "../notifications/types";
 
 export enum WebhookSignal {
-  channelWhatsappAuth = 'channels.whatsapp.auth'
+  channelWhatsappAuth = 'channels.whatsapp.auth',
+  notificationStatusChanged = 'notifications.status.changed',
+  notificationGroupProcessed = 'notifications.group.processed',
 }
 
 export type WebhookSignalMap = {
@@ -12,6 +15,12 @@ export type WebhookSignalMap = {
     workspace:Workspace,
     dashboard:Dashboard
   },
+  'notifications.status.changed': {
+    notification:Notification
+  },
+  'notifications.group.processed': {
+    groupId:string,
+  }
 }
 
 export type WebhookRequestDto<T = WebhookSignalMap> = { 
