@@ -8,7 +8,7 @@ async function example() {
     //host:'localhost:3001',sandbox:true,
     ...Credentials,
   })
-  api.sse
+  /*api.sse
   .on('message',event => {
     console.info(event.event,event.data)
     if(event.event == 'qrRequired') {
@@ -17,8 +17,8 @@ async function example() {
   })
   .on('error', err => {
     console.log(err)
-  })
-  api.setTenantID(32) //offline 5-5
+  })*/
+  api.setTenantID(39) //offline 5-5
   await api.auth()
   /*api.channels.update(52,{
     default:false
@@ -35,7 +35,7 @@ async function example() {
     default:true
   }).then(console.log)*/
   //api.channels.auth(2).then(console.log)
-  api.webhooks.findAll().then(console.log)
+  //api.webhooks.findAll().then(console.log)
   //api.channels.findAll({where:{workspaceId:32}}).then(console.log)
   //api.roles.syncPermissions().then(console.log)
   /*api.channels.update(1,{
@@ -50,18 +50,9 @@ async function example() {
   //api.me.notifications.findAllEvents(38).then(console.log)
   /*api.notifications.send({
     recipient:{
-      provider:'waha',
-      waha:{
-        phone:'+39'
-      }
+      email:''
     },
-    channelId:63,
-    content:{
-      type:'whatsapp',
-      whatsapp:{
-        body:'aqwert' + `${new Date()}`,
-      }
-    }
+    templateId:133
   }).then(console.log)
   /*api.notifications.findAll({
     where:{

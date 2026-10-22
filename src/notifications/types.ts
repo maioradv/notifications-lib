@@ -66,54 +66,33 @@ export type ContentWebPush = {
 
 export type NotificationContent = ContentEmail | ContentWhatsapp | ContentPush | ContentWebPush
 
-export type RecipientSmtp = {
-  provider:'smtp',
-  smtp:{
-    name:string,
-    email:string,
-  }
-}
-
-export type RecipientWhatsappWeb = {
-  provider:'whatsappWeb',
-  whatsappWeb:{
-    phone:string,
-  }
-}
-
-export type RecipientBaileys = {
-  provider:'baileys',
-  baileys:{
-    phone:string;
-  }
-}
-
-export type RecipientWaha = {
-  provider:'waha',
-  waha:{
-    phone:string;
-  }
-}
-
-export type RecipientExpo = {
-  provider:'expo',
-  expo:{
-    token:string
-  }
-}
-
-export type RecipientVapid = {
-  provider:'vapid',
-  vapid:{
-    endpoint: string
-    p256dh: string
-    auth: string
-  }
-}
-
 export type NotificationRecipient = {
+  /**
+   * Required for email notifications
+   */
+  name?:string,
+  /**
+   * Required for email notifications
+   */
+  email?:string,
+  /**
+   * Required for whatsapp notifications
+   */
+  phone?:string,
+  /**
+   * Required for push notifications
+   */
+  deviceToken?:string,
+  /**
+   * Required for web push notifications
+   */
+  webPushSubscription?:{
+    endpoint:string
+    p256dh:string
+    auth:string
+  },
   locale?:string
-} & (RecipientSmtp | RecipientWhatsappWeb | RecipientExpo | RecipientVapid | RecipientBaileys | RecipientWaha)
+}
 
 export type NotificationOptions = {
   unsubscribeUrl?: string,
