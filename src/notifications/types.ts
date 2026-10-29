@@ -149,6 +149,10 @@ export type SendNotificationBulkDto = {
   data:SendNotificationDto[]
 }
 
+export type CancelNotificationDto = {
+  ids: number[]
+}
+
 export type CreateNotificationEventDto = OmitRequire<NotificationEvent,'id'|'createdAt'|'updatedAt'|'notificationId','event'>
 
 export type SortingNotificationDto = SortingParamsDto<{

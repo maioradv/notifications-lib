@@ -37,6 +37,8 @@ export enum Permission {
   write_workspaces = 'write_workspaces',
   read_channels = 'read_channels', 
   write_channels = 'write_channels',
+  read_channel_presets = 'read_channel_presets', 
+  write_channel_presets = 'write_channel_presets',
   read_templates = 'read_templates',
   write_templates = 'write_templates',
   read_notifications = 'read_notifications',

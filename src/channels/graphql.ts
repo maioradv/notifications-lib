@@ -21,6 +21,7 @@ export const ChannelsResolvers:Resolvers<['channels'],['removeChannels','archive
             default
             description
             workspaceId
+            presetId
             deletedAt
             createdAt
             updatedAt
@@ -56,6 +57,7 @@ export const ChannelsResolvers:Resolvers<['channels'],['removeChannels','archive
           default
           description
           workspaceId
+          presetId
           deletedAt
           createdAt
           updatedAt

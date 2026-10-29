@@ -1,6 +1,6 @@
 import { RestApiModuleI, ApiModule, GraphApiModuleI, queryParams, BulkResponse, PaginatedDto, PaginatedGQL } from "@maioradv/client-core";
 import { NotificationsResolvers, QueryNotificationGQLDto } from "./graphql";
-import { Notification, NotificationEvent, CreateNotificationDto, CreateNotificationBulkDto, CreateNotificationEventDto, UpdateNotificationDto, QueryNotificationDto, SendNotificationDto, SendNotificationBulkDto } from "./types";
+import { Notification, NotificationEvent, CreateNotificationDto, CreateNotificationBulkDto, CreateNotificationEventDto, UpdateNotificationDto, QueryNotificationDto } from "./types";
 
 export default class Notifications extends ApiModule implements RestApiModuleI, GraphApiModuleI {
   create(args:CreateNotificationDto): Promise<Notification> {
@@ -52,19 +52,5 @@ export default class Notifications extends ApiModule implements RestApiModuleI, 
     return this._graphql(NotificationsResolvers.query.fetchNotification,{
       token
     })
-  }
-
-  /**
-   * @requires TenantID - Set Workspace ID with {@link ApiClient.setTenantID}
-   */
-  send(args:SendNotificationDto): Promise<Notification> {
-    return this._call('post','/notifications/send',args)
-  }
-
-  /**
-   * @requires TenantID - Set Workspace ID with {@link ApiClient.setTenantID}
-   */
-  sendBulk(args:SendNotificationBulkDto): Promise<void> {
-    return this._call('post','/notifications/send/bulk',args)
   }
 }

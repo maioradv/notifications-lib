@@ -25,6 +25,8 @@ import AudienceEvents from "./audiences/events";
 import AudienceTags from "./audience-tags";
 import Segments from "./segments";
 import Campaigns from "./campaigns";
+import Send from "./notifications/send";
+import ChannelPresets from "./channel-presets";
 
 export class ApiClient implements ClientApiI
 {
@@ -36,8 +38,10 @@ export class ApiClient implements ClientApiI
   roles:Roles;
   settings:Settings;
   channels:Channels;
+  channelPresets:ChannelPresets;
   dashboards:Dashboards;
   notifications:Notifications;
+  send:Send;
   providers:Providers;
   sse:SseHandler;
   stats:Stats;
@@ -78,8 +82,10 @@ export class ApiClient implements ClientApiI
     this.roles = new Roles(this.client)
     this.settings = new Settings(this.client)
     this.channels = new Channels(this.client)
+    this.channelPresets = new ChannelPresets(this.client)
     this.dashboards = new Dashboards(this.client)
     this.notifications = new Notifications(this.client)
+    this.send = new Send(this.client)
     this.providers = new Providers(this.client)
     this.stats = new Stats(this.client)
     this.templates = new Templates(this.client)

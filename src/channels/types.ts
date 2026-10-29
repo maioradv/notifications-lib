@@ -112,6 +112,7 @@ export type Channel = {
   default: boolean;
   description: string | null;
   workspaceId: number;
+  presetId: number | null;
   createdAt: Date;
   updatedAt: Date;
   deletedAt: Date | null;
@@ -148,8 +149,8 @@ export type QueryChannelEventDto = QueryParamsDto<
 >
 
 
-export type CreateChannelDto = OmitRequire<Channel,'id'|'createdAt'|'updatedAt'|'deletedAt','type'|'config'|'workspaceId'>
-export type UpdateChannelDto = Partial<Omit<CreateChannelDto,'config'|'type'>>
+export type CreateChannelDto = OmitRequire<Channel,'id'|'createdAt'|'updatedAt'|'deletedAt','type'|'workspaceId'>
+export type UpdateChannelDto = Partial<Omit<CreateChannelDto,'config'|'type'|'presetId'>>
 
 export type SortingChannelDto = SortingParamsDto<{
   type?:Sorting,

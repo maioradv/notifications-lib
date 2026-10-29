@@ -11,7 +11,7 @@ export enum WebhookSignal {
 
 export type WebhookSignalMap = {
   'channels.whatsapp.auth': {
-    channel:Channel,
+    channel:Omit<Channel,'config'>,
     workspace:Workspace,
     dashboard:Dashboard
   },
