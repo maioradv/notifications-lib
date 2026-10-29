@@ -95,8 +95,17 @@ export type NotificationRecipient = {
 }
 
 export type NotificationOptions = {
+  /**
+   * Unsubscribe url (POST) for push notifications only
+   */
   unsubscribeUrl?: string,
+  /**
+   * Allow night sending (22pm - 10am) for whatsapp notifications only
+   */
   allowNightSending?: boolean,
+  /**
+   * Unique identifier for group of notifications, enables webhook group signals
+   */
   groupId?: string,
 }
 

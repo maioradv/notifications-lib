@@ -59,7 +59,13 @@ export type ConfigSmtp = {
     auth: {
       user: string,
       pass: string,
-    }
+    },
+    /**
+     * Use a list of domain or a specific email
+     * @example example.com
+     * @example specific@email.com
+     */
+    allowedSenders?:string[]
   }
 }
 
