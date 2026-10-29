@@ -30,8 +30,3 @@ export type ClausesChannelPresetDto = WhereClausesDto<{
 }>
 
 export type QueryChannelPresetDto = QueryParamsDto<SortingChannelPresetDto,ClausesChannelPresetDto>
-
-export enum CommonChannelPresets {
-  'maiorAmazonSes' = 1,
-  'maiorWaha' = 2
-}

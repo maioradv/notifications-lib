@@ -3,6 +3,11 @@ export enum ApiVersion {
   Unstable = 'unstable'
 }
 
+export enum CommonChannelPresets {
+  'maiorAmazonSes' = 1,
+  'maiorWaha' = 2
+}
+
 export enum ApiHost {
   main = 'api.piumail.it'
 }
