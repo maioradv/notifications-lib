@@ -16,11 +16,19 @@ export enum CampaignChannel {
   email = 'email'
 }
 
+export type CampaignOptions = {
+  /**
+   * Daily message limit for whatsapp only
+   */
+  dailyLimit?:number
+}
+
 export type Campaign = {
   id: number;
   name: string;
   status: CampaignStatus;
   channel: CampaignChannel;
+  options: CampaignOptions;
   templateId: number | null;
   segmentId: number | null;
   scheduledAt: Date;
