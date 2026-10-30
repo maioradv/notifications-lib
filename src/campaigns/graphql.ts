@@ -21,6 +21,7 @@ export const CampaignsResolvers:Resolvers<['campaigns'],['removeCampaigns']> = {
             segmentId
             scheduledAt
             workspaceId
+            options
             createdAt
             updatedAt
             deletedAt
