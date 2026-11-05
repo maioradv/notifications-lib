@@ -3,6 +3,7 @@ import { Sorting } from "@maioradv/client-core";
 import { SortingParamsDto } from "@maioradv/client-core";
 import { Gid, MetadataFilter, OmitRequire, WithRelations } from "@maioradv/types";
 import { AudienceTag } from "../audience-tags/types";
+import { CustomEventData } from "../custom-events/types";
 
 export type Audience = {
   id: number;
@@ -41,12 +42,6 @@ export type AudienceEvents = {
     channel:'whatsapp'|'email',
     scheduledAt:Date
   }
-} | {
-  name: 'audience.customEvent',
-  payload: {
-    name:string,
-    data:Record<string,unknown>
-  }
 }
 
 export type AudienceEventData = AudienceEvents;
@@ -59,7 +54,15 @@ export type UpdateAudienceDto = Partial<CreateAudienceDto> & {
   removeTags?: number[];
 };
 
-export type PushAudienceDto = OmitRequire<Audience,'id' | 'uuid' | 'createdAt' | 'updatedAt' | 'deletedAt' | 'workspaceId','name'>
+export type PushAudienceDto = OmitRequire<Audience,'id' | 'uuid' | 'createdAt' | 'updatedAt' | 'deletedAt' | 'workspaceId','name'> & {
+  optIn:boolean;
+  reason?:string;
+  tags?: string[];
+}
+
+export type PushAudienceCustomEventDto = CustomEventData & {
+  audienceId:number;
+}
 
 export type PutAudienceDto = CreateAudienceDto & {
   id?:number;
@@ -76,6 +79,14 @@ export type AudienceEvent = {
   id: number;
   audienceId: number;
   data: AudienceEventData;
+  createdAt: Date;
+  updatedAt: Date;
+};
+
+export type AudienceCustomEvent = {
+  id: number;
+  audienceId: number;
+  data: CustomEventData;
   createdAt: Date;
   updatedAt: Date;
 };

@@ -3,7 +3,7 @@ import { PaginatedGQLQueryDto, Resolvers } from "@maioradv/client-core";
 export const AudiencesResolvers: Resolvers<['audiences'],[
   'archiveAudience','restoreAudiences','archiveAudiences',
   'removeAudiences','unsubscribeAudience','restoreAudience',
-  'pushAudience'
+  'pushAudience','pushAudienceCustomEvent'
 ]> = {
   query: {
     audiences: {
@@ -72,6 +72,18 @@ export const AudiencesResolvers: Resolvers<['audiences'],[
           createdAt
           updatedAt
           deletedAt
+        }
+      }`,
+    },
+    pushAudienceCustomEvent: {
+      name: 'pushAudienceCustomEvent',
+      query: `mutation AudienceCustomEventPush($event: PushAudienceCustomEventDto!) {
+        pushAudienceCustomEvent(event: $event) {  
+          id
+          audienceId
+          data
+          createdAt
+          updatedAt
         }
       }`,
     },

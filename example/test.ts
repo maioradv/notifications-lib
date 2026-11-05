@@ -35,7 +35,25 @@ async function example() {
     default:true
   }).then(console.log)*/
   //api.channels.auth(2).then(console.log)
-  //api.webhooks.findAll().then(console.log)
+  /*api.audiences.push({
+    name:'Test Audience',
+    optIn:true,
+    reason:'Testing',
+    email:'test@example.it',
+    phone:'+393333030304',
+    tags:['test'],
+    metadata:{
+      sex:'M'
+    }
+  }).then(console.log)*/
+  api.audiences.pushCustomEvent({
+    audienceId:8,
+    name:'reservationCancelled',
+    payload:{
+      reservationId:123,
+      reason:'User cancelled'
+    }
+  }).then(console.log)
   //api.channels.findAll({where:{workspaceId:32}}).then(console.log)
   //api.roles.syncPermissions().then(console.log)
   /*api.channels.update(1,{

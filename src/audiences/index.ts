@@ -1,5 +1,5 @@
 import { ApiModule, RestApiModuleI, GraphApiModuleI, PaginatedDto, PaginatedGQL, BulkResponse, queryParams } from "@maioradv/client-core";
-import { Audience, CreateAudienceDto, FindAllAudienceDto, FindOneAudienceDto, PushAudienceDto, PutAudienceBatchDto, PutAudienceDto, QueryAudienceDto, UpdateAudienceDto } from "./types";
+import { Audience, CreateAudienceDto, FindAllAudienceDto, FindOneAudienceDto, PushAudienceCustomEventDto, PushAudienceDto, PutAudienceBatchDto, PutAudienceDto, QueryAudienceDto, UpdateAudienceDto } from "./types";
 import { AudiencesResolvers, QueryAudienceGQLDto } from "./graphql";
 import { AudienceEvent, CreateAudienceEventDto } from "./types";
 
@@ -57,5 +57,12 @@ export default class Audiences extends ApiModule implements RestApiModuleI, Grap
    */
   push(audience: PushAudienceDto): Promise<Audience> {
     return this._graphql(AudiencesResolvers.mutation.pushAudience, { audience });
+  }
+
+  /**
+   * @requires WorkspaceToken - Context Type
+   */
+  pushCustomEvent(event: PushAudienceCustomEventDto): Promise<Audience> {
+    return this._graphql(AudiencesResolvers.mutation.pushAudienceCustomEvent, { event });
   }
 }
