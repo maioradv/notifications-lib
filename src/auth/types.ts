@@ -48,6 +48,7 @@ export enum Permission {
   read_configs = 'read_configs',
   write_configs = 'write_configs',
   read_stats = 'read_stats',
+  write_stats = 'write_stats',
   read_providers = 'read_providers',
   write_providers = 'write_providers',
   read_dashboards = 'read_dashboards',

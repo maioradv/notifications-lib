@@ -1,7 +1,11 @@
 import { ApiModule } from "@maioradv/client-core";
-import { DashboardMetric, WorkspaceMetric, ChannelMetric, QueryMetricsDto } from "./types";
+import { DashboardMetric, WorkspaceMetric, ChannelMetric, QueryMetricsDto, GenerateMetricsDto } from "./types";
 
 export default class Stats extends ApiModule {
+
+  generateMetrics(args:GenerateMetricsDto): Promise<void> {
+    return this._call('post',`/stats`,args)
+  }
 
   dashboardMetrics(id:number,args:QueryMetricsDto): Promise<DashboardMetric[]> {
     return this._call('get',`/stats/dashboards/${id}/metrics`,args)

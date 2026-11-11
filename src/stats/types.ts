@@ -32,8 +32,13 @@ export type ChannelMetric = MetricData & {
   channelId:number;
 }
 
-export class QueryMetricsDto {
+export type QueryMetricsDto = {
   interval: TimeInterval;
   from: Date;
   to: Date;
+}
+
+export type GenerateMetricsDto = {
+  interval: TimeInterval;
+  day?: Date;
 }
