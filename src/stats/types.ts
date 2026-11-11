@@ -5,7 +5,7 @@ export enum TimeInterval {
 }
 
 export type MetricData = {
-  total:number;
+  created:number;
   sent:number;
   failed:number;
 }
