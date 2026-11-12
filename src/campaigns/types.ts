@@ -7,7 +7,7 @@ export enum CampaignStatus {
   draft = 'draft',
   scheduled = 'scheduled',
   processing = 'processing',
-  sent = 'sent',
+  completed = 'completed',
   failed = 'failed'
 }
 
